@@ -1,3 +1,2413 @@
+﻿=== FILE: .nuxt/components.d.ts ===
+
+import type { DefineComponent, SlotsType } from 'vue'
+type IslandComponent<T> = DefineComponent<{}, {refresh: () => Promise<void>}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>> & T
+
+type HydrationStrategies = {
+  hydrateOnVisible?: IntersectionObserverInit | true
+  hydrateOnIdle?: number | true
+  hydrateOnInteraction?: keyof HTMLElementEventMap | Array<keyof HTMLElementEventMap> | true
+  hydrateOnMediaQuery?: string
+  hydrateAfter?: number
+  hydrateWhen?: boolean
+  hydrateNever?: true
+}
+type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
+
+
+export const Component: typeof import("../app/components/component.vue")['default']
+export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
+export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
+export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
+export const ClientOnly: typeof import("../node_modules/nuxt/dist/app/components/client-only")['default']
+export const DevOnly: typeof import("../node_modules/nuxt/dist/app/components/dev-only")['default']
+export const ServerPlaceholder: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
+export const NuxtLink: typeof import("../node_modules/nuxt/dist/app/components/nuxt-link")['default']
+export const NuxtLoadingIndicator: typeof import("../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']
+export const NuxtTime: typeof import("../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']
+export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']
+export const NuxtAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/nuxt-announcer")['default']
+export const NuxtImg: typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']
+export const NuxtPicture: typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
+export const NuxtPage: typeof import("../node_modules/nuxt/dist/pages/runtime/page")['default']
+export const NoScript: typeof import("../node_modules/nuxt/dist/head/runtime/components")['NoScript']
+export const Link: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Link']
+export const Base: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Base']
+export const Title: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Title']
+export const Meta: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Meta']
+export const Style: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Style']
+export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Head']
+export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
+export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
+export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+export const LazyComponent: LazyComponent<typeof import("../app/components/component.vue")['default']>
+export const LazyNuxtWelcome: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
+export const LazyNuxtLayout: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
+export const LazyNuxtErrorBoundary: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>
+export const LazyClientOnly: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/client-only")['default']>
+export const LazyDevOnly: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/dev-only")['default']>
+export const LazyServerPlaceholder: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
+export const LazyNuxtLink: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-link")['default']>
+export const LazyNuxtLoadingIndicator: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']>
+export const LazyNuxtTime: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']>
+export const LazyNuxtRouteAnnouncer: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']>
+export const LazyNuxtAnnouncer: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-announcer")['default']>
+export const LazyNuxtImg: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']>
+export const LazyNuxtPicture: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']>
+export const LazyNuxtPage: LazyComponent<typeof import("../node_modules/nuxt/dist/pages/runtime/page")['default']>
+export const LazyNoScript: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['NoScript']>
+export const LazyLink: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Link']>
+export const LazyBase: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Base']>
+export const LazyTitle: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Title']>
+export const LazyMeta: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Meta']>
+export const LazyStyle: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Style']>
+export const LazyHead: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Head']>
+export const LazyHtml: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']>
+export const LazyBody: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']>
+export const LazyNuxtIsland: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']>
+
+export const componentNames: string[]
+
+
+=== FILE: .nuxt/imports.d.ts ===
+export { useScriptTriggerConsent, useScriptEventPage, useScriptTriggerElement, useScript, useScriptGoogleAnalytics, useScriptPlausibleAnalytics, useScriptCrisp, useScriptClarity, useScriptCloudflareWebAnalytics, useScriptVercelAnalytics, useScriptPostHog, useScriptFathomAnalytics, useScriptMatomoAnalytics, useScriptMixpanelAnalytics, useScriptBingUet, useScriptGoogleTagManager, useScriptGoogleAdsense, useScriptGoogleRecaptcha, useScriptGoogleSignIn, useScriptSegment, useScriptMetaPixel, useScriptXPixel, useScriptTikTokPixel, useScriptIntercom, useScriptHotjar, useScriptStripe, useScriptLemonSqueezy, useScriptVimeoPlayer, useScriptYouTubePlayer, useScriptGoogleMaps, useScriptNpm, useScriptUmamiAnalytics, useScriptSnapchatPixel, useScriptRybbitAnalytics, useScriptDatabuddyAnalytics, useScriptRedditPixel, useScriptPayPal, useScriptGravatar, useScriptAhrefsAnalytics, useScriptLinkedInInsight, useScriptCalendly, useScriptUsercentrics } from '#app/composables/script-stubs';
+export { isVue2, isVue3 } from 'vue-demi';
+export { defineNuxtLink } from '#app/components/nuxt-link';
+export { useNuxtApp, tryUseNuxtApp, defineNuxtPlugin, definePayloadPlugin, useRuntimeConfig, defineAppConfig } from '#app/nuxt';
+export { useAppConfig, updateAppConfig } from '#app/config';
+export { defineNuxtComponent } from '#app/composables/component';
+export { useAsyncData, useLazyAsyncData, useNuxtData, refreshNuxtData, clearNuxtData, createUseAsyncData } from '#app/composables/asyncData';
+export { useHydration } from '#app/composables/hydrate';
+export { callOnce } from '#app/composables/once';
+export { useState, clearNuxtState } from '#app/composables/state';
+export { clearError, createError, isNuxtError, showError, useError } from '#app/composables/error';
+export { useFetch, useLazyFetch, createUseFetch } from '#app/composables/fetch';
+export { useCookie, refreshCookie } from '#app/composables/cookie';
+export { onPrehydrate, prerenderRoutes, useRequestHeader, useRequestHeaders, useResponseHeader, useRequestEvent, useRequestFetch, setResponseStatus } from '#app/composables/ssr';
+export { onNuxtReady } from '#app/composables/ready';
+export { preloadComponents, prefetchComponents, preloadRouteComponents } from '#app/composables/preload';
+export { abortNavigation, addRouteMiddleware, defineNuxtRouteMiddleware, setPageLayout, navigateTo, useRoute, useRouter } from '#app/composables/router';
+export { isPrerendered, loadPayload, preloadPayload, definePayloadReducer, definePayloadReviver } from '#app/composables/payload';
+export { useLoadingIndicator } from '#app/composables/loading-indicator';
+export { getAppManifest, getRouteRules } from '#app/composables/manifest';
+export { reloadNuxtApp } from '#app/composables/chunk';
+export { useRequestURL } from '#app/composables/url';
+export { usePreviewMode } from '#app/composables/preview';
+export { useRouteAnnouncer } from '#app/composables/route-announcer';
+export { useAnnouncer } from '#app/composables/announcer';
+export { useRuntimeHook } from '#app/composables/runtime-hook';
+export { useHead, useHeadSafe, useServerHeadSafe, useServerHead, useSeoMeta, useServerSeoMeta, injectHead } from '#app/composables/head';
+export { onBeforeRouteLeave, onBeforeRouteUpdate, useLink } from 'vue-router';
+export { withCtx, withDirectives, withKeys, withMemo, withModifiers, withScopeId, onActivated, onBeforeMount, onBeforeUnmount, onBeforeUpdate, onDeactivated, onErrorCaptured, onMounted, onRenderTracked, onRenderTriggered, onServerPrefetch, onUnmounted, onUpdated, computed, customRef, isProxy, isReactive, isReadonly, isRef, markRaw, proxyRefs, reactive, readonly, ref, shallowReactive, shallowReadonly, shallowRef, toRaw, toRef, toRefs, triggerRef, unref, watch, watchEffect, watchPostEffect, watchSyncEffect, onWatcherCleanup, isShallow, effect, effectScope, getCurrentScope, onScopeDispose, defineComponent, defineAsyncComponent, resolveComponent, getCurrentInstance, h, inject, hasInjectionContext, nextTick, provide, toValue, useModel, useAttrs, useCssModule, useSlots, useTransitionState, useId, useTemplateRef, useShadowRoot, useCssVars, Component, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue';
+export { requestIdleCallback, cancelIdleCallback } from '#app/compat/idle-callback';
+export { setInterval } from '#app/compat/interval';
+export { definePageMeta, PageMeta } from '#app/composables/pages';
+export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
+export { useTheme } from '../app/composables/useTheme';
+export { default as authClient } from '../app/stores/auth.client';
+export { useAuthStore } from '../app/stores/auth';
+export { defineStore, acceptHMRUpdate, usePinia, storeToRefs } from '../node_modules/@pinia/nuxt/dist/runtime/composables';
+export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
+
+=== FILE: .nuxt/manifest/latest.json ===
+{"id":"dev","timestamp":1779864921477}
+
+=== FILE: .nuxt/manifest/meta/d5a457e2-9ef8-47db-9fc3-0b34e41c3d2e.json ===
+{}
+
+=== FILE: .nuxt/manifest/meta/dev.json ===
+{"id":"dev","timestamp":1779864921477,"prerendered":[]}
+
+=== FILE: .nuxt/nitro.json ===
+{
+  "date": "2026-05-27T06:55:23.026Z",
+  "preset": "nitro-dev",
+  "framework": {
+    "name": "nuxt",
+    "version": "4.4.6"
+  },
+  "versions": {
+    "nitro": "2.13.4"
+  },
+  "dev": {
+    "pid": 12628,
+    "workerAddress": {
+      "socketPath": "\\\\.\\pipe\\nitro-worker-12628-2-1-7872.sock"
+    }
+  }
+}
+
+=== FILE: .nuxt/nuxt.d.ts ===
+/// <reference types="@nuxt/telemetry" />
+/// <reference types="@pinia/nuxt" />
+/// <reference types="@nuxt/devtools" />
+/// <reference path="types/nitro-layouts.d.ts" />
+/// <reference path="types/builder-env.d.ts" />
+/// <reference path="types/plugins.d.ts" />
+/// <reference path="types/build.d.ts" />
+/// <reference path="types/app.config.d.ts" />
+/// <reference path="types/runtime-config.d.ts" />
+/// <reference types="nuxt/app" />
+/// <reference path="../node_modules/@nuxt/nitro-server/dist/index.d.mts" />
+/// <reference types="@pinia/nuxt" />
+/// <reference types="vue-router" />
+/// <reference path="types/middleware.d.ts" />
+/// <reference path="types/nitro-middleware.d.ts" />
+/// <reference path="types/layouts.d.ts" />
+/// <reference path="types/components.d.ts" />
+/// <reference path="imports.d.ts" />
+/// <reference path="types/imports.d.ts" />
+/// <reference path="schema/nuxt.schema.d.ts" />
+/// <reference path="types/nitro.d.ts" />
+
+export {}
+
+
+=== FILE: .nuxt/nuxt.json ===
+{
+  "_hash": "SLfy5sbtdo_66d_5urpjmANSHdI8PQH-8iK1DLp078E",
+  "project": {
+    "rootDir": "E:/universrity/Iau.Bazaar.View"
+  },
+  "versions": {
+    "nuxt": "4.4.6"
+  }
+}
+
+=== FILE: .nuxt/nuxt.node.d.ts ===
+/// <reference types="@nuxt/telemetry" />
+/// <reference types="@pinia/nuxt" />
+/// <reference types="@nuxt/devtools" />
+/// <reference path="types/nitro-layouts.d.ts" />
+/// <reference path="types/modules.d.ts" />
+/// <reference path="types/runtime-config.d.ts" />
+/// <reference path="types/app.config.d.ts" />
+/// <reference types="nuxt" />
+/// <reference path="../node_modules/@nuxt/vite-builder/dist/index.d.mts" />
+/// <reference path="../node_modules/@nuxt/nitro-server/dist/index.d.mts" />
+/// <reference path="types/nitro-middleware.d.ts" />
+/// <reference path="schema/nuxt.schema.d.ts" />
+
+export {}
+
+
+=== FILE: .nuxt/nuxt.shared.d.ts ===
+/// <reference path="types/runtime-config.d.ts" />
+/// <reference path="types/app.config.d.ts" />
+/// <reference path="types/shared-imports.d.ts" />
+/// <reference path="schema/nuxt.schema.d.ts" />
+
+export {}
+
+
+=== FILE: .nuxt/schema/nuxt.schema.d.ts ===
+export interface NuxtCustomSchema {
+
+}
+export type CustomAppConfig = Exclude<NuxtCustomSchema['appConfig'], undefined>
+type _CustomAppConfig = CustomAppConfig
+
+declare module '@nuxt/schema' {
+  interface NuxtConfig extends Omit<NuxtCustomSchema, 'appConfig'> {}
+  interface NuxtOptions extends Omit<NuxtCustomSchema, 'appConfig'> {}
+  interface CustomAppConfig extends _CustomAppConfig {}
+}
+
+declare module 'nuxt/schema' {
+  interface NuxtConfig extends Omit<NuxtCustomSchema, 'appConfig'> {}
+  interface NuxtOptions extends Omit<NuxtCustomSchema, 'appConfig'> {}
+  interface CustomAppConfig extends _CustomAppConfig {}
+}
+
+
+=== FILE: .nuxt/schema/nuxt.schema.json ===
+{
+  "id": "#"
+}
+
+=== FILE: .nuxt/tsconfig.app.json ===
+{
+  "compilerOptions": {
+    "paths": {
+      "nuxt": [
+        "../node_modules/nuxt"
+      ],
+      "@unhead/vue": [
+        "../node_modules/@unhead/vue"
+      ],
+      "@nuxt/devtools": [
+        "../node_modules/@nuxt/devtools"
+      ],
+      "@vue/runtime-core": [
+        "../node_modules/@vue/runtime-core"
+      ],
+      "@vue/compiler-sfc": [
+        "../node_modules/@vue/compiler-sfc"
+      ],
+      "@nuxt/schema": [
+        "../node_modules/@nuxt/schema"
+      ],
+      "defu": [
+        "../node_modules/defu"
+      ],
+      "h3": [
+        "../node_modules/h3"
+      ],
+      "consola": [
+        "../node_modules/consola"
+      ],
+      "ofetch": [
+        "../node_modules/ofetch"
+      ],
+      "crossws": [
+        "../node_modules/crossws"
+      ],
+      "vite/client": [
+        "../node_modules/vite/client"
+      ],
+      "nitropack/types": [
+        "../node_modules/nitropack/types"
+      ],
+      "nitropack/runtime": [
+        "../node_modules/nitropack/runtime"
+      ],
+      "nitropack": [
+        "../node_modules/nitropack"
+      ],
+      "~": [
+        "../app"
+      ],
+      "~/*": [
+        "../app/*"
+      ],
+      "@": [
+        "../app"
+      ],
+      "@/*": [
+        "../app/*"
+      ],
+      "~~": [
+        ".."
+      ],
+      "~~/*": [
+        "../*"
+      ],
+      "@@": [
+        ".."
+      ],
+      "@@/*": [
+        "../*"
+      ],
+      "#shared": [
+        "../shared"
+      ],
+      "#shared/*": [
+        "../shared/*"
+      ],
+      "#server": [
+        "../server"
+      ],
+      "#server/*": [
+        "../server/*"
+      ],
+      "#app": [
+        "../node_modules/nuxt/dist/app"
+      ],
+      "#app/*": [
+        "../node_modules/nuxt/dist/app/*"
+      ],
+      "vue-demi": [
+        "../node_modules/nuxt/dist/app/compat/vue-demi"
+      ],
+      "#vue-router": [
+        "../node_modules/vue-router"
+      ],
+      "#unhead/composables": [
+        "../node_modules/nuxt/dist/head/runtime/composables"
+      ],
+      "#imports": [
+        "./imports"
+      ],
+      "#app-manifest": [
+        "./manifest/meta/dev"
+      ],
+      "#components": [
+        "./components"
+      ],
+      "#build": [
+        "."
+      ],
+      "#build/*": [
+        "./*"
+      ]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "allowArbitraryExtensions": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitOverride": true,
+    "module": "preserve",
+    "noEmit": true,
+    "lib": [
+      "ESNext",
+      "dom",
+      "dom.iterable",
+      "webworker"
+    ],
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "types": [],
+    "moduleResolution": "Bundler",
+    "useDefineForClassFields": true,
+    "noImplicitThis": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "./nuxt.d.ts",
+    "../app/**/*",
+    "../modules/*/runtime/**/*",
+    "../test/nuxt/**/*",
+    "../tests/nuxt/**/*",
+    "../layers/*/app/**/*",
+    "../layers/*/modules/*/runtime/**/*",
+    "../shared/**/*.d.ts",
+    "../modules/*/shared/**/*.d.ts",
+    "../layers/*/shared/**/*.d.ts",
+    "../*.d.ts",
+    "../layers/*/*.d.ts"
+  ],
+  "exclude": [
+    "../node_modules",
+    "../node_modules/nuxt/node_modules",
+    "../node_modules/@pinia/nuxt/node_modules",
+    "../node_modules/@nuxt/devtools/node_modules",
+    "../node_modules/@nuxt/telemetry/node_modules",
+    "../dist",
+    "../.data",
+    "../modules/*/runtime/server/**/*",
+    "../layers/*/server/**/*",
+    "../layers/*/modules/*/runtime/server/**/*",
+    "../modules/*.*",
+    "../nuxt.config.*",
+    "../.config/nuxt.*",
+    "../layers/*/nuxt.config.*",
+    "../layers/*/.config/nuxt.*",
+    "../layers/*/modules/**/*",
+    "../node_modules/runtime/server",
+    "../node_modules/dist/runtime/server",
+    "../node_modules/*.*",
+    "../node_modules/dist/*.*",
+    "dev",
+    "../server"
+  ],
+  "vueCompilerOptions": {
+    "plugins": [
+      "vue-router/volar/sfc-route-blocks"
+    ]
+  }
+}
+
+=== FILE: .nuxt/tsconfig.json ===
+{
+  "compilerOptions": {
+    "paths": {
+      "nuxt": [
+        "../node_modules/nuxt"
+      ],
+      "@unhead/vue": [
+        "../node_modules/@unhead/vue"
+      ],
+      "@nuxt/devtools": [
+        "../node_modules/@nuxt/devtools"
+      ],
+      "@vue/runtime-core": [
+        "../node_modules/@vue/runtime-core"
+      ],
+      "@vue/compiler-sfc": [
+        "../node_modules/@vue/compiler-sfc"
+      ],
+      "@nuxt/schema": [
+        "../node_modules/@nuxt/schema"
+      ],
+      "defu": [
+        "../node_modules/defu"
+      ],
+      "h3": [
+        "../node_modules/h3"
+      ],
+      "consola": [
+        "../node_modules/consola"
+      ],
+      "ofetch": [
+        "../node_modules/ofetch"
+      ],
+      "crossws": [
+        "../node_modules/crossws"
+      ],
+      "vite/client": [
+        "../node_modules/vite/client"
+      ],
+      "nitropack/types": [
+        "../node_modules/nitropack/types"
+      ],
+      "nitropack/runtime": [
+        "../node_modules/nitropack/runtime"
+      ],
+      "nitropack": [
+        "../node_modules/nitropack"
+      ],
+      "~": [
+        "../app"
+      ],
+      "~/*": [
+        "../app/*"
+      ],
+      "@": [
+        "../app"
+      ],
+      "@/*": [
+        "../app/*"
+      ],
+      "~~": [
+        ".."
+      ],
+      "~~/*": [
+        "../*"
+      ],
+      "@@": [
+        ".."
+      ],
+      "@@/*": [
+        "../*"
+      ],
+      "#shared": [
+        "../shared"
+      ],
+      "#shared/*": [
+        "../shared/*"
+      ],
+      "#server": [
+        "../server"
+      ],
+      "#server/*": [
+        "../server/*"
+      ],
+      "#app": [
+        "../node_modules/nuxt/dist/app"
+      ],
+      "#app/*": [
+        "../node_modules/nuxt/dist/app/*"
+      ],
+      "vue-demi": [
+        "../node_modules/nuxt/dist/app/compat/vue-demi"
+      ],
+      "#vue-router": [
+        "../node_modules/vue-router"
+      ],
+      "#unhead/composables": [
+        "../node_modules/nuxt/dist/head/runtime/composables"
+      ],
+      "#imports": [
+        "./imports"
+      ],
+      "#app-manifest": [
+        "./manifest/meta/dev"
+      ],
+      "#components": [
+        "./components"
+      ],
+      "#build": [
+        "."
+      ],
+      "#build/*": [
+        "./*"
+      ]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "allowArbitraryExtensions": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitOverride": true,
+    "module": "preserve",
+    "noEmit": true,
+    "lib": [
+      "ESNext",
+      "dom",
+      "dom.iterable",
+      "webworker"
+    ],
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "types": [],
+    "moduleResolution": "Bundler",
+    "useDefineForClassFields": true,
+    "noImplicitThis": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "./nuxt.d.ts",
+    "../app/**/*",
+    "../modules/*/runtime/**/*",
+    "../test/nuxt/**/*",
+    "../tests/nuxt/**/*",
+    "../layers/*/app/**/*",
+    "../layers/*/modules/*/runtime/**/*",
+    "../shared/**/*.d.ts",
+    "../modules/*/shared/**/*.d.ts",
+    "../layers/*/shared/**/*.d.ts",
+    "../*.d.ts",
+    "../layers/*/*.d.ts",
+    "./nuxt.node.d.ts",
+    "../modules/*.*",
+    "../nuxt.config.*",
+    "../.config/nuxt.*",
+    "../layers/*/nuxt.config.*",
+    "../layers/*/.config/nuxt.*",
+    "../layers/*/modules/**/*",
+    "../shared/**/*",
+    "../modules/*/shared/**/*",
+    "../layers/*/shared/**/*",
+    "../node_modules/runtime",
+    "../node_modules/dist/runtime"
+  ],
+  "exclude": [
+    "../node_modules",
+    "../node_modules/nuxt/node_modules",
+    "../node_modules/@pinia/nuxt/node_modules",
+    "../node_modules/@nuxt/devtools/node_modules",
+    "../node_modules/@nuxt/telemetry/node_modules",
+    "../dist",
+    "../.data",
+    "../modules/*/runtime/server/**/*",
+    "../layers/*/server/**/*",
+    "../layers/*/modules/*/runtime/server/**/*",
+    "../modules/*.*",
+    "../nuxt.config.*",
+    "../.config/nuxt.*",
+    "../layers/*/nuxt.config.*",
+    "../layers/*/.config/nuxt.*",
+    "../layers/*/modules/**/*",
+    "../node_modules/runtime/server",
+    "../node_modules/dist/runtime/server",
+    "../node_modules/*.*",
+    "../node_modules/dist/*.*",
+    "dev",
+    "../server"
+  ],
+  "vueCompilerOptions": {
+    "plugins": [
+      "vue-router/volar/sfc-route-blocks"
+    ]
+  }
+}
+
+=== FILE: .nuxt/tsconfig.node.json ===
+{
+  "compilerOptions": {
+    "paths": {
+      "nuxt": [
+        "../node_modules/nuxt"
+      ],
+      "@unhead/vue": [
+        "../node_modules/@unhead/vue"
+      ],
+      "@nuxt/devtools": [
+        "../node_modules/@nuxt/devtools"
+      ],
+      "@vue/runtime-core": [
+        "../node_modules/@vue/runtime-core"
+      ],
+      "@vue/compiler-sfc": [
+        "../node_modules/@vue/compiler-sfc"
+      ],
+      "@nuxt/schema": [
+        "../node_modules/@nuxt/schema"
+      ],
+      "defu": [
+        "../node_modules/defu"
+      ],
+      "h3": [
+        "../node_modules/h3"
+      ],
+      "consola": [
+        "../node_modules/consola"
+      ],
+      "ofetch": [
+        "../node_modules/ofetch"
+      ],
+      "crossws": [
+        "../node_modules/crossws"
+      ],
+      "vite/client": [
+        "../node_modules/vite/client"
+      ],
+      "nitropack/types": [
+        "../node_modules/nitropack/types"
+      ],
+      "nitropack/runtime": [
+        "../node_modules/nitropack/runtime"
+      ],
+      "nitropack": [
+        "../node_modules/nitropack"
+      ]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "allowArbitraryExtensions": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitOverride": true,
+    "module": "preserve",
+    "noEmit": true,
+    "types": [],
+    "moduleResolution": "Bundler",
+    "useDefineForClassFields": true,
+    "noImplicitThis": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "./nuxt.node.d.ts",
+    "../modules/*.*",
+    "../nuxt.config.*",
+    "../.config/nuxt.*",
+    "../layers/*/nuxt.config.*",
+    "../layers/*/.config/nuxt.*",
+    "../layers/*/modules/**/*",
+    "../nuxt.schema.*",
+    "../layers/*/nuxt.schema.*"
+  ],
+  "exclude": [
+    "../node_modules",
+    "../node_modules/nuxt/node_modules",
+    "../node_modules/@pinia/nuxt/node_modules",
+    "../node_modules/@nuxt/devtools/node_modules",
+    "../node_modules/@nuxt/telemetry/node_modules",
+    "../dist",
+    "../.data",
+    "../app/**/*",
+    "../modules/*/runtime/**/*",
+    "../test/nuxt/**/*",
+    "../tests/nuxt/**/*",
+    "../layers/*/app/**/*",
+    "../layers/*/modules/*/runtime/**/*",
+    "../modules/*/runtime/server/**/*",
+    "../layers/*/server/**/*",
+    "../layers/*/modules/*/runtime/server/**/*",
+    "../node_modules/runtime",
+    "../node_modules/dist/runtime"
+  ]
+}
+
+=== FILE: .nuxt/tsconfig.server.json ===
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "paths": {
+      "#imports": [
+        "./types/nitro-imports"
+      ],
+      "~/*": [
+        "../app/*"
+      ],
+      "@/*": [
+        "../app/*"
+      ],
+      "~~/*": [
+        "../*"
+      ],
+      "@@/*": [
+        "../*"
+      ],
+      "nuxt": [
+        "../node_modules/nuxt"
+      ],
+      "@unhead/vue": [
+        "../node_modules/@unhead/vue"
+      ],
+      "@nuxt/devtools": [
+        "../node_modules/@nuxt/devtools"
+      ],
+      "@vue/runtime-core": [
+        "../node_modules/@vue/runtime-core"
+      ],
+      "@vue/compiler-sfc": [
+        "../node_modules/@vue/compiler-sfc"
+      ],
+      "@nuxt/schema": [
+        "../node_modules/@nuxt/schema"
+      ],
+      "defu": [
+        "../node_modules/defu"
+      ],
+      "h3": [
+        "../node_modules/h3"
+      ],
+      "consola": [
+        "../node_modules/consola"
+      ],
+      "ofetch": [
+        "../node_modules/ofetch"
+      ],
+      "crossws": [
+        "../node_modules/crossws"
+      ],
+      "vite/client": [
+        "../node_modules/vite/client"
+      ],
+      "nitropack/types": [
+        "../node_modules/nitropack/types"
+      ],
+      "nitropack/runtime": [
+        "../node_modules/nitropack/runtime"
+      ],
+      "nitropack": [
+        "../node_modules/nitropack"
+      ],
+      "#shared": [
+        "../shared"
+      ],
+      "#shared/*": [
+        "../shared/*"
+      ],
+      "#server": [
+        "../server"
+      ],
+      "#server/*": [
+        "../server/*"
+      ],
+      "#build": [
+        "./"
+      ],
+      "#build/*": [
+        "./*"
+      ],
+      "#internal/nuxt/paths": [
+        "../node_modules/@nuxt/nitro-server/dist/runtime/utils/paths"
+      ],
+      "#unhead/composables": [
+        "../node_modules/nuxt/dist/head/runtime/composables"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "webworker",
+      "dom.iterable"
+    ],
+    "noUncheckedIndexedAccess": true,
+    "allowArbitraryExtensions": true
+  },
+  "include": [
+    "./types/nitro-nuxt.d.ts",
+    "../node_modules/runtime/server",
+    "../node_modules/dist/runtime/server",
+    "../server/**/*",
+    "../shared/**/*.d.ts",
+    "./types/nitro.d.ts"
+  ],
+  "exclude": [
+    "../node_modules",
+    "../node_modules/nuxt/node_modules",
+    "../node_modules/@pinia/nuxt/node_modules",
+    "../node_modules/@nuxt/devtools/node_modules",
+    "../node_modules/@nuxt/telemetry/node_modules",
+    "../dist"
+  ]
+}
+
+=== FILE: .nuxt/tsconfig.shared.json ===
+{
+  "compilerOptions": {
+    "paths": {
+      "nuxt": [
+        "../node_modules/nuxt"
+      ],
+      "@unhead/vue": [
+        "../node_modules/@unhead/vue"
+      ],
+      "@nuxt/devtools": [
+        "../node_modules/@nuxt/devtools"
+      ],
+      "@vue/runtime-core": [
+        "../node_modules/@vue/runtime-core"
+      ],
+      "@vue/compiler-sfc": [
+        "../node_modules/@vue/compiler-sfc"
+      ],
+      "@nuxt/schema": [
+        "../node_modules/@nuxt/schema"
+      ],
+      "defu": [
+        "../node_modules/defu"
+      ],
+      "h3": [
+        "../node_modules/h3"
+      ],
+      "consola": [
+        "../node_modules/consola"
+      ],
+      "ofetch": [
+        "../node_modules/ofetch"
+      ],
+      "crossws": [
+        "../node_modules/crossws"
+      ],
+      "vite/client": [
+        "../node_modules/vite/client"
+      ],
+      "nitropack/types": [
+        "../node_modules/nitropack/types"
+      ],
+      "nitropack/runtime": [
+        "../node_modules/nitropack/runtime"
+      ],
+      "nitropack": [
+        "../node_modules/nitropack"
+      ],
+      "~": [
+        "../app"
+      ],
+      "~/*": [
+        "../app/*"
+      ],
+      "@": [
+        "../app"
+      ],
+      "@/*": [
+        "../app/*"
+      ],
+      "~~": [
+        ".."
+      ],
+      "~~/*": [
+        "../*"
+      ],
+      "@@": [
+        ".."
+      ],
+      "@@/*": [
+        "../*"
+      ],
+      "#shared": [
+        "../shared"
+      ],
+      "#shared/*": [
+        "../shared/*"
+      ],
+      "#server": [
+        "../server"
+      ],
+      "#server/*": [
+        "../server/*"
+      ],
+      "#app": [
+        "../node_modules/nuxt/dist/app"
+      ],
+      "#app/*": [
+        "../node_modules/nuxt/dist/app/*"
+      ],
+      "vue-demi": [
+        "../node_modules/nuxt/dist/app/compat/vue-demi"
+      ],
+      "#vue-router": [
+        "../node_modules/vue-router"
+      ],
+      "#unhead/composables": [
+        "../node_modules/nuxt/dist/head/runtime/composables"
+      ],
+      "#imports": [
+        "./imports"
+      ],
+      "#app-manifest": [
+        "./manifest/meta/dev"
+      ],
+      "#build": [
+        "."
+      ],
+      "#build/*": [
+        "./*"
+      ]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "allowArbitraryExtensions": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitOverride": true,
+    "module": "preserve",
+    "noEmit": true,
+    "types": [],
+    "moduleResolution": "Bundler",
+    "useDefineForClassFields": true,
+    "noImplicitThis": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "./nuxt.shared.d.ts",
+    "../shared/**/*",
+    "../modules/*/shared/**/*",
+    "../layers/*/shared/**/*",
+    "../*.d.ts",
+    "../layers/*/*.d.ts"
+  ],
+  "exclude": []
+}
+
+=== FILE: .nuxt/types/app.config.d.ts ===
+
+import type { AppConfigInput, CustomAppConfig } from 'nuxt/schema'
+import type { Defu } from 'defu'
+
+
+declare global {
+  const defineAppConfig: <C extends AppConfigInput> (config: C) => C
+}
+
+declare const inlineConfig = {
+  "nuxt": {}
+}
+type ResolvedAppConfig = Defu<typeof inlineConfig, []>
+type IsAny<T> = 0 extends 1 & T ? true : false
+
+type MergedAppConfig<Resolved extends Record<string, unknown>, Custom extends Record<string, unknown>> = {
+  [K in keyof (Resolved & Custom)]: K extends keyof Custom
+    ? unknown extends Custom[K]
+      ? Resolved[K]
+      : IsAny<Custom[K]> extends true
+        ? Resolved[K]
+        : Custom[K] extends Record<string, any>
+            ? Resolved[K] extends Record<string, any>
+              ? MergedAppConfig<Resolved[K], Custom[K]>
+              : Exclude<Custom[K], undefined>
+            : Exclude<Custom[K], undefined>
+    : Resolved[K]
+}
+
+declare module 'nuxt/schema' {
+  interface AppConfig extends MergedAppConfig<ResolvedAppConfig, CustomAppConfig> { }
+}
+declare module '@nuxt/schema' {
+  interface AppConfig extends MergedAppConfig<ResolvedAppConfig, CustomAppConfig> { }
+}
+
+
+=== FILE: .nuxt/types/build.d.ts ===
+declare module "#build/app-component.mjs";
+declare module "#build/nitro.client.mjs";
+declare module "#build/plugins.client.mjs";
+declare module "#build/css.mjs";
+declare module "#build/fetch.mjs";
+declare module "#build/error-component.mjs";
+declare module "#build/global-polyfills.mjs";
+declare module "#build/layouts.mjs";
+declare module "#build/middleware.mjs";
+declare module "#build/nuxt.config.mjs";
+declare module "#build/paths.mjs";
+declare module "#build/root-component.mjs";
+declare module "#build/plugins.server.mjs";
+declare module "#build/test-component-wrapper.mjs";
+declare module "#build/devtools/settings.mjs";
+declare module "#build/runtime.vue-devtools-client.Ww4JtgiJNTlk0ItTxGybB_I4KlSWVfxo3K9cTUvdDAY.js";
+declare module "#build/routes.mjs";
+declare module "#build/pages.mjs";
+declare module "#build/router.options.mjs";
+declare module "#build/unhead-options.mjs";
+declare module "#build/unhead.config.mjs";
+declare module "#build/components.plugin.mjs";
+declare module "#build/component-names.mjs";
+declare module "#build/components.islands.mjs";
+declare module "#build/component-chunk.mjs";
+declare module "#build/route-rules.mjs";
+
+
+=== FILE: .nuxt/types/builder-env.d.ts ===
+import "vite/client";
+
+=== FILE: .nuxt/types/components.d.ts ===
+
+import type { DefineComponent, SlotsType } from 'vue'
+type IslandComponent<T> = DefineComponent<{}, {refresh: () => Promise<void>}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>> & T
+
+type HydrationStrategies = {
+  hydrateOnVisible?: IntersectionObserverInit | true
+  hydrateOnIdle?: number | true
+  hydrateOnInteraction?: keyof HTMLElementEventMap | Array<keyof HTMLElementEventMap> | true
+  hydrateOnMediaQuery?: string
+  hydrateAfter?: number
+  hydrateWhen?: boolean
+  hydrateNever?: true
+}
+type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
+
+interface _GlobalComponents {
+  Component: typeof import("../../app/components/component.vue")['default']
+  NuxtWelcome: typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']
+  NuxtLayout: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
+  NuxtErrorBoundary: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
+  ClientOnly: typeof import("../../node_modules/nuxt/dist/app/components/client-only")['default']
+  DevOnly: typeof import("../../node_modules/nuxt/dist/app/components/dev-only")['default']
+  ServerPlaceholder: typeof import("../../node_modules/nuxt/dist/app/components/server-placeholder")['default']
+  NuxtLink: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-link")['default']
+  NuxtLoadingIndicator: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']
+  NuxtTime: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']
+  NuxtRouteAnnouncer: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']
+  NuxtAnnouncer: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-announcer")['default']
+  NuxtImg: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']
+  NuxtPicture: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
+  NuxtPage: typeof import("../../node_modules/nuxt/dist/pages/runtime/page")['default']
+  NoScript: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['NoScript']
+  Link: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Link']
+  Base: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Base']
+  Title: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Title']
+  Meta: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Meta']
+  Style: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Style']
+  Head: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Head']
+  Html: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Html']
+  Body: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Body']
+  NuxtIsland: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+  LazyComponent: LazyComponent<typeof import("../../app/components/component.vue")['default']>
+  LazyNuxtWelcome: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
+  LazyNuxtLayout: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
+  LazyNuxtErrorBoundary: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>
+  LazyClientOnly: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/client-only")['default']>
+  LazyDevOnly: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/dev-only")['default']>
+  LazyServerPlaceholder: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
+  LazyNuxtLink: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-link")['default']>
+  LazyNuxtLoadingIndicator: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']>
+  LazyNuxtTime: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']>
+  LazyNuxtRouteAnnouncer: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']>
+  LazyNuxtAnnouncer: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-announcer")['default']>
+  LazyNuxtImg: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']>
+  LazyNuxtPicture: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']>
+  LazyNuxtPage: LazyComponent<typeof import("../../node_modules/nuxt/dist/pages/runtime/page")['default']>
+  LazyNoScript: LazyComponent<typeof import("../../node_modules/nuxt/dist/head/runtime/components")['NoScript']>
+  LazyLink: LazyComponent<typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Link']>
+  LazyBase: LazyComponent<typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Base']>
+  LazyTitle: LazyComponent<typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Title']>
+  LazyMeta: LazyComponent<typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Meta']>
+  LazyStyle: LazyComponent<typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Style']>
+  LazyHead: LazyComponent<typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Head']>
+  LazyHtml: LazyComponent<typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Html']>
+  LazyBody: LazyComponent<typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Body']>
+  LazyNuxtIsland: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']>
+}
+
+declare module 'vue' {
+  export interface GlobalComponents extends _GlobalComponents { }
+}
+
+export {}
+
+
+=== FILE: .nuxt/types/imports.d.ts ===
+// Generated by auto imports
+export {}
+declare global {
+  const abortNavigation: typeof import('../../node_modules/nuxt/dist/app/composables/router').abortNavigation
+  const acceptHMRUpdate: typeof import('../../node_modules/@pinia/nuxt/dist/runtime/composables').acceptHMRUpdate
+  const addRouteMiddleware: typeof import('../../node_modules/nuxt/dist/app/composables/router').addRouteMiddleware
+  const authClient: typeof import('../../app/stores/auth.client').default
+  const callOnce: typeof import('../../node_modules/nuxt/dist/app/composables/once').callOnce
+  const cancelIdleCallback: typeof import('../../node_modules/nuxt/dist/app/compat/idle-callback').cancelIdleCallback
+  const clearError: typeof import('../../node_modules/nuxt/dist/app/composables/error').clearError
+  const clearNuxtData: typeof import('../../node_modules/nuxt/dist/app/composables/asyncData').clearNuxtData
+  const clearNuxtState: typeof import('../../node_modules/nuxt/dist/app/composables/state').clearNuxtState
+  const computed: typeof import('vue').computed
+  const createError: typeof import('../../node_modules/nuxt/dist/app/composables/error').createError
+  const createUseAsyncData: typeof import('../../node_modules/nuxt/dist/app/composables/asyncData').createUseAsyncData
+  const createUseFetch: typeof import('../../node_modules/nuxt/dist/app/composables/fetch').createUseFetch
+  const customRef: typeof import('vue').customRef
+  const defineAppConfig: typeof import('../../node_modules/nuxt/dist/app/nuxt').defineAppConfig
+  const defineAsyncComponent: typeof import('vue').defineAsyncComponent
+  const defineComponent: typeof import('vue').defineComponent
+  const defineLazyHydrationComponent: typeof import('../../node_modules/nuxt/dist/app/composables/lazy-hydration').defineLazyHydrationComponent
+  const defineNuxtComponent: typeof import('../../node_modules/nuxt/dist/app/composables/component').defineNuxtComponent
+  const defineNuxtLink: typeof import('../../node_modules/nuxt/dist/app/components/nuxt-link').defineNuxtLink
+  const defineNuxtPlugin: typeof import('../../node_modules/nuxt/dist/app/nuxt').defineNuxtPlugin
+  const defineNuxtRouteMiddleware: typeof import('../../node_modules/nuxt/dist/app/composables/router').defineNuxtRouteMiddleware
+  const definePageMeta: typeof import('../../node_modules/nuxt/dist/app/composables/pages').definePageMeta
+  const definePayloadPlugin: typeof import('../../node_modules/nuxt/dist/app/nuxt').definePayloadPlugin
+  const definePayloadReducer: typeof import('../../node_modules/nuxt/dist/app/composables/payload').definePayloadReducer
+  const definePayloadReviver: typeof import('../../node_modules/nuxt/dist/app/composables/payload').definePayloadReviver
+  const defineStore: typeof import('../../node_modules/@pinia/nuxt/dist/runtime/composables').defineStore
+  const effect: typeof import('vue').effect
+  const effectScope: typeof import('vue').effectScope
+  const getAppManifest: typeof import('../../node_modules/nuxt/dist/app/composables/manifest').getAppManifest
+  const getCurrentInstance: typeof import('vue').getCurrentInstance
+  const getCurrentScope: typeof import('vue').getCurrentScope
+  const getRouteRules: typeof import('../../node_modules/nuxt/dist/app/composables/manifest').getRouteRules
+  const h: typeof import('vue').h
+  const hasInjectionContext: typeof import('vue').hasInjectionContext
+  const inject: typeof import('vue').inject
+  const injectHead: typeof import('../../node_modules/nuxt/dist/app/composables/head').injectHead
+  const isNuxtError: typeof import('../../node_modules/nuxt/dist/app/composables/error').isNuxtError
+  const isPrerendered: typeof import('../../node_modules/nuxt/dist/app/composables/payload').isPrerendered
+  const isProxy: typeof import('vue').isProxy
+  const isReactive: typeof import('vue').isReactive
+  const isReadonly: typeof import('vue').isReadonly
+  const isRef: typeof import('vue').isRef
+  const isShallow: typeof import('vue').isShallow
+  const isVue2: typeof import('../../node_modules/nuxt/dist/app/compat/vue-demi').isVue2
+  const isVue3: typeof import('../../node_modules/nuxt/dist/app/compat/vue-demi').isVue3
+  const loadPayload: typeof import('../../node_modules/nuxt/dist/app/composables/payload').loadPayload
+  const markRaw: typeof import('vue').markRaw
+  const navigateTo: typeof import('../../node_modules/nuxt/dist/app/composables/router').navigateTo
+  const nextTick: typeof import('vue').nextTick
+  const onActivated: typeof import('vue').onActivated
+  const onBeforeMount: typeof import('vue').onBeforeMount
+  const onBeforeRouteLeave: typeof import('vue-router').onBeforeRouteLeave
+  const onBeforeRouteUpdate: typeof import('vue-router').onBeforeRouteUpdate
+  const onBeforeUnmount: typeof import('vue').onBeforeUnmount
+  const onBeforeUpdate: typeof import('vue').onBeforeUpdate
+  const onDeactivated: typeof import('vue').onDeactivated
+  const onErrorCaptured: typeof import('vue').onErrorCaptured
+  const onMounted: typeof import('vue').onMounted
+  const onNuxtReady: typeof import('../../node_modules/nuxt/dist/app/composables/ready').onNuxtReady
+  const onPrehydrate: typeof import('../../node_modules/nuxt/dist/app/composables/ssr').onPrehydrate
+  const onRenderTracked: typeof import('vue').onRenderTracked
+  const onRenderTriggered: typeof import('vue').onRenderTriggered
+  const onScopeDispose: typeof import('vue').onScopeDispose
+  const onServerPrefetch: typeof import('vue').onServerPrefetch
+  const onUnmounted: typeof import('vue').onUnmounted
+  const onUpdated: typeof import('vue').onUpdated
+  const onWatcherCleanup: typeof import('vue').onWatcherCleanup
+  const prefetchComponents: typeof import('../../node_modules/nuxt/dist/app/composables/preload').prefetchComponents
+  const preloadComponents: typeof import('../../node_modules/nuxt/dist/app/composables/preload').preloadComponents
+  const preloadPayload: typeof import('../../node_modules/nuxt/dist/app/composables/payload').preloadPayload
+  const preloadRouteComponents: typeof import('../../node_modules/nuxt/dist/app/composables/preload').preloadRouteComponents
+  const prerenderRoutes: typeof import('../../node_modules/nuxt/dist/app/composables/ssr').prerenderRoutes
+  const provide: typeof import('vue').provide
+  const proxyRefs: typeof import('vue').proxyRefs
+  const reactive: typeof import('vue').reactive
+  const readonly: typeof import('vue').readonly
+  const ref: typeof import('vue').ref
+  const refreshCookie: typeof import('../../node_modules/nuxt/dist/app/composables/cookie').refreshCookie
+  const refreshNuxtData: typeof import('../../node_modules/nuxt/dist/app/composables/asyncData').refreshNuxtData
+  const reloadNuxtApp: typeof import('../../node_modules/nuxt/dist/app/composables/chunk').reloadNuxtApp
+  const requestIdleCallback: typeof import('../../node_modules/nuxt/dist/app/compat/idle-callback').requestIdleCallback
+  const resolveComponent: typeof import('vue').resolveComponent
+  const setInterval: typeof import('../../node_modules/nuxt/dist/app/compat/interval').setInterval
+  const setPageLayout: typeof import('../../node_modules/nuxt/dist/app/composables/router').setPageLayout
+  const setResponseStatus: typeof import('../../node_modules/nuxt/dist/app/composables/ssr').setResponseStatus
+  const shallowReactive: typeof import('vue').shallowReactive
+  const shallowReadonly: typeof import('vue').shallowReadonly
+  const shallowRef: typeof import('vue').shallowRef
+  const showError: typeof import('../../node_modules/nuxt/dist/app/composables/error').showError
+  const storeToRefs: typeof import('../../node_modules/@pinia/nuxt/dist/runtime/composables').storeToRefs
+  const toRaw: typeof import('vue').toRaw
+  const toRef: typeof import('vue').toRef
+  const toRefs: typeof import('vue').toRefs
+  const toValue: typeof import('vue').toValue
+  const triggerRef: typeof import('vue').triggerRef
+  const tryUseNuxtApp: typeof import('../../node_modules/nuxt/dist/app/nuxt').tryUseNuxtApp
+  const unref: typeof import('vue').unref
+  const updateAppConfig: typeof import('../../node_modules/nuxt/dist/app/config').updateAppConfig
+  const useAnnouncer: typeof import('../../node_modules/nuxt/dist/app/composables/announcer').useAnnouncer
+  const useAppConfig: typeof import('../../node_modules/nuxt/dist/app/config').useAppConfig
+  const useAsyncData: typeof import('../../node_modules/nuxt/dist/app/composables/asyncData').useAsyncData
+  const useAttrs: typeof import('vue').useAttrs
+  const useAuthStore: typeof import('../../app/stores/auth').useAuthStore
+  const useCookie: typeof import('../../node_modules/nuxt/dist/app/composables/cookie').useCookie
+  const useCssModule: typeof import('vue').useCssModule
+  const useCssVars: typeof import('vue').useCssVars
+  const useError: typeof import('../../node_modules/nuxt/dist/app/composables/error').useError
+  const useFetch: typeof import('../../node_modules/nuxt/dist/app/composables/fetch').useFetch
+  const useHead: typeof import('../../node_modules/nuxt/dist/app/composables/head').useHead
+  const useHeadSafe: typeof import('../../node_modules/nuxt/dist/app/composables/head').useHeadSafe
+  const useHydration: typeof import('../../node_modules/nuxt/dist/app/composables/hydrate').useHydration
+  const useId: typeof import('vue').useId
+  const useLazyAsyncData: typeof import('../../node_modules/nuxt/dist/app/composables/asyncData').useLazyAsyncData
+  const useLazyFetch: typeof import('../../node_modules/nuxt/dist/app/composables/fetch').useLazyFetch
+  const useLink: typeof import('vue-router').useLink
+  const useLoadingIndicator: typeof import('../../node_modules/nuxt/dist/app/composables/loading-indicator').useLoadingIndicator
+  const useModel: typeof import('vue').useModel
+  const useNuxtApp: typeof import('../../node_modules/nuxt/dist/app/nuxt').useNuxtApp
+  const useNuxtData: typeof import('../../node_modules/nuxt/dist/app/composables/asyncData').useNuxtData
+  const useNuxtDevTools: typeof import('../../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools').useNuxtDevTools
+  const usePinia: typeof import('../../node_modules/@pinia/nuxt/dist/runtime/composables').usePinia
+  const usePreviewMode: typeof import('../../node_modules/nuxt/dist/app/composables/preview').usePreviewMode
+  const useRequestEvent: typeof import('../../node_modules/nuxt/dist/app/composables/ssr').useRequestEvent
+  const useRequestFetch: typeof import('../../node_modules/nuxt/dist/app/composables/ssr').useRequestFetch
+  const useRequestHeader: typeof import('../../node_modules/nuxt/dist/app/composables/ssr').useRequestHeader
+  const useRequestHeaders: typeof import('../../node_modules/nuxt/dist/app/composables/ssr').useRequestHeaders
+  const useRequestURL: typeof import('../../node_modules/nuxt/dist/app/composables/url').useRequestURL
+  const useResponseHeader: typeof import('../../node_modules/nuxt/dist/app/composables/ssr').useResponseHeader
+  const useRoute: typeof import('../../node_modules/nuxt/dist/app/composables/router').useRoute
+  const useRouteAnnouncer: typeof import('../../node_modules/nuxt/dist/app/composables/route-announcer').useRouteAnnouncer
+  const useRouter: typeof import('../../node_modules/nuxt/dist/app/composables/router').useRouter
+  const useRuntimeConfig: typeof import('../../node_modules/nuxt/dist/app/nuxt').useRuntimeConfig
+  const useRuntimeHook: typeof import('../../node_modules/nuxt/dist/app/composables/runtime-hook').useRuntimeHook
+  const useScript: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScript
+  const useScriptAhrefsAnalytics: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptAhrefsAnalytics
+  const useScriptBingUet: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptBingUet
+  const useScriptCalendly: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptCalendly
+  const useScriptClarity: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptClarity
+  const useScriptCloudflareWebAnalytics: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptCloudflareWebAnalytics
+  const useScriptCrisp: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptCrisp
+  const useScriptDatabuddyAnalytics: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptDatabuddyAnalytics
+  const useScriptEventPage: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptEventPage
+  const useScriptFathomAnalytics: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptFathomAnalytics
+  const useScriptGoogleAdsense: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptGoogleAdsense
+  const useScriptGoogleAnalytics: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptGoogleAnalytics
+  const useScriptGoogleMaps: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptGoogleMaps
+  const useScriptGoogleRecaptcha: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptGoogleRecaptcha
+  const useScriptGoogleSignIn: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptGoogleSignIn
+  const useScriptGoogleTagManager: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptGoogleTagManager
+  const useScriptGravatar: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptGravatar
+  const useScriptHotjar: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptHotjar
+  const useScriptIntercom: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptIntercom
+  const useScriptLemonSqueezy: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptLemonSqueezy
+  const useScriptLinkedInInsight: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptLinkedInInsight
+  const useScriptMatomoAnalytics: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptMatomoAnalytics
+  const useScriptMetaPixel: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptMetaPixel
+  const useScriptMixpanelAnalytics: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptMixpanelAnalytics
+  const useScriptNpm: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptNpm
+  const useScriptPayPal: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptPayPal
+  const useScriptPlausibleAnalytics: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptPlausibleAnalytics
+  const useScriptPostHog: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptPostHog
+  const useScriptRedditPixel: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptRedditPixel
+  const useScriptRybbitAnalytics: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptRybbitAnalytics
+  const useScriptSegment: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptSegment
+  const useScriptSnapchatPixel: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptSnapchatPixel
+  const useScriptStripe: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptStripe
+  const useScriptTikTokPixel: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptTikTokPixel
+  const useScriptTriggerConsent: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptTriggerConsent
+  const useScriptTriggerElement: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptTriggerElement
+  const useScriptUmamiAnalytics: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptUmamiAnalytics
+  const useScriptUsercentrics: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptUsercentrics
+  const useScriptVercelAnalytics: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptVercelAnalytics
+  const useScriptVimeoPlayer: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptVimeoPlayer
+  const useScriptXPixel: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptXPixel
+  const useScriptYouTubePlayer: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs').useScriptYouTubePlayer
+  const useSeoMeta: typeof import('../../node_modules/nuxt/dist/app/composables/head').useSeoMeta
+  const useServerHead: typeof import('../../node_modules/nuxt/dist/app/composables/head').useServerHead
+  const useServerHeadSafe: typeof import('../../node_modules/nuxt/dist/app/composables/head').useServerHeadSafe
+  const useServerSeoMeta: typeof import('../../node_modules/nuxt/dist/app/composables/head').useServerSeoMeta
+  const useShadowRoot: typeof import('vue').useShadowRoot
+  const useSlots: typeof import('vue').useSlots
+  const useState: typeof import('../../node_modules/nuxt/dist/app/composables/state').useState
+  const useTemplateRef: typeof import('vue').useTemplateRef
+  const useTheme: typeof import('../../app/composables/useTheme').useTheme
+  const useTransitionState: typeof import('vue').useTransitionState
+  const watch: typeof import('vue').watch
+  const watchEffect: typeof import('vue').watchEffect
+  const watchPostEffect: typeof import('vue').watchPostEffect
+  const watchSyncEffect: typeof import('vue').watchSyncEffect
+  const withCtx: typeof import('vue').withCtx
+  const withDirectives: typeof import('vue').withDirectives
+  const withKeys: typeof import('vue').withKeys
+  const withMemo: typeof import('vue').withMemo
+  const withModifiers: typeof import('vue').withModifiers
+  const withScopeId: typeof import('vue').withScopeId
+}
+// for type re-export
+declare global {
+  // @ts-ignore
+  export type { Component, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue'
+  import('vue')
+  // @ts-ignore
+  export type { PageMeta } from '../../node_modules/nuxt/dist/app/composables/pages'
+  import('../../node_modules/nuxt/dist/app/composables/pages')
+}
+// for vue template auto import
+import { UnwrapRef } from 'vue'
+declare module 'vue' {
+  interface ComponentCustomProperties {
+    readonly abortNavigation: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['abortNavigation']>
+    readonly acceptHMRUpdate: UnwrapRef<typeof import('../../node_modules/@pinia/nuxt/dist/runtime/composables')['acceptHMRUpdate']>
+    readonly addRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['addRouteMiddleware']>
+    readonly authClient: UnwrapRef<typeof import('../../app/stores/auth.client')['default']>
+    readonly callOnce: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/once')['callOnce']>
+    readonly cancelIdleCallback: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/idle-callback')['cancelIdleCallback']>
+    readonly clearError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/error')['clearError']>
+    readonly clearNuxtData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/asyncData')['clearNuxtData']>
+    readonly clearNuxtState: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/state')['clearNuxtState']>
+    readonly computed: UnwrapRef<typeof import('vue')['computed']>
+    readonly createError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/error')['createError']>
+    readonly createUseAsyncData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/asyncData')['createUseAsyncData']>
+    readonly createUseFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/fetch')['createUseFetch']>
+    readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
+    readonly defineAppConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/nuxt')['defineAppConfig']>
+    readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
+    readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
+    readonly defineLazyHydrationComponent: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/lazy-hydration')['defineLazyHydrationComponent']>
+    readonly defineNuxtComponent: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/component')['defineNuxtComponent']>
+    readonly defineNuxtLink: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/components/nuxt-link')['defineNuxtLink']>
+    readonly defineNuxtPlugin: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/nuxt')['defineNuxtPlugin']>
+    readonly defineNuxtRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['defineNuxtRouteMiddleware']>
+    readonly definePageMeta: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/pages')['definePageMeta']>
+    readonly definePayloadPlugin: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/nuxt')['definePayloadPlugin']>
+    readonly definePayloadReducer: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/payload')['definePayloadReducer']>
+    readonly definePayloadReviver: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/payload')['definePayloadReviver']>
+    readonly defineStore: UnwrapRef<typeof import('../../node_modules/@pinia/nuxt/dist/runtime/composables')['defineStore']>
+    readonly effect: UnwrapRef<typeof import('vue')['effect']>
+    readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly getAppManifest: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/manifest')['getAppManifest']>
+    readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
+    readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly getRouteRules: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/manifest')['getRouteRules']>
+    readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly hasInjectionContext: UnwrapRef<typeof import('vue')['hasInjectionContext']>
+    readonly inject: UnwrapRef<typeof import('vue')['inject']>
+    readonly injectHead: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/head')['injectHead']>
+    readonly isNuxtError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/error')['isNuxtError']>
+    readonly isPrerendered: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/payload')['isPrerendered']>
+    readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
+    readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
+    readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
+    readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
+    readonly isShallow: UnwrapRef<typeof import('vue')['isShallow']>
+    readonly isVue2: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/vue-demi')['isVue2']>
+    readonly isVue3: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/vue-demi')['isVue3']>
+    readonly loadPayload: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/payload')['loadPayload']>
+    readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
+    readonly navigateTo: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['navigateTo']>
+    readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
+    readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
+    readonly onBeforeMount: UnwrapRef<typeof import('vue')['onBeforeMount']>
+    readonly onBeforeRouteLeave: UnwrapRef<typeof import('vue-router')['onBeforeRouteLeave']>
+    readonly onBeforeRouteUpdate: UnwrapRef<typeof import('vue-router')['onBeforeRouteUpdate']>
+    readonly onBeforeUnmount: UnwrapRef<typeof import('vue')['onBeforeUnmount']>
+    readonly onBeforeUpdate: UnwrapRef<typeof import('vue')['onBeforeUpdate']>
+    readonly onDeactivated: UnwrapRef<typeof import('vue')['onDeactivated']>
+    readonly onErrorCaptured: UnwrapRef<typeof import('vue')['onErrorCaptured']>
+    readonly onMounted: UnwrapRef<typeof import('vue')['onMounted']>
+    readonly onNuxtReady: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ready')['onNuxtReady']>
+    readonly onPrehydrate: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['onPrehydrate']>
+    readonly onRenderTracked: UnwrapRef<typeof import('vue')['onRenderTracked']>
+    readonly onRenderTriggered: UnwrapRef<typeof import('vue')['onRenderTriggered']>
+    readonly onScopeDispose: UnwrapRef<typeof import('vue')['onScopeDispose']>
+    readonly onServerPrefetch: UnwrapRef<typeof import('vue')['onServerPrefetch']>
+    readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
+    readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
+    readonly onWatcherCleanup: UnwrapRef<typeof import('vue')['onWatcherCleanup']>
+    readonly prefetchComponents: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/preload')['prefetchComponents']>
+    readonly preloadComponents: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/preload')['preloadComponents']>
+    readonly preloadPayload: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/payload')['preloadPayload']>
+    readonly preloadRouteComponents: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/preload')['preloadRouteComponents']>
+    readonly prerenderRoutes: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['prerenderRoutes']>
+    readonly provide: UnwrapRef<typeof import('vue')['provide']>
+    readonly proxyRefs: UnwrapRef<typeof import('vue')['proxyRefs']>
+    readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
+    readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
+    readonly ref: UnwrapRef<typeof import('vue')['ref']>
+    readonly refreshCookie: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/cookie')['refreshCookie']>
+    readonly refreshNuxtData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/asyncData')['refreshNuxtData']>
+    readonly reloadNuxtApp: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/chunk')['reloadNuxtApp']>
+    readonly requestIdleCallback: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/idle-callback')['requestIdleCallback']>
+    readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
+    readonly setInterval: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/interval')['setInterval']>
+    readonly setPageLayout: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['setPageLayout']>
+    readonly setResponseStatus: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['setResponseStatus']>
+    readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
+    readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
+    readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly showError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/error')['showError']>
+    readonly storeToRefs: UnwrapRef<typeof import('../../node_modules/@pinia/nuxt/dist/runtime/composables')['storeToRefs']>
+    readonly toRaw: UnwrapRef<typeof import('vue')['toRaw']>
+    readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
+    readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
+    readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
+    readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
+    readonly tryUseNuxtApp: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/nuxt')['tryUseNuxtApp']>
+    readonly unref: UnwrapRef<typeof import('vue')['unref']>
+    readonly updateAppConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/config')['updateAppConfig']>
+    readonly useAnnouncer: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/announcer')['useAnnouncer']>
+    readonly useAppConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/config')['useAppConfig']>
+    readonly useAsyncData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/asyncData')['useAsyncData']>
+    readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useAuthStore: UnwrapRef<typeof import('../../app/stores/auth')['useAuthStore']>
+    readonly useCookie: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/cookie')['useCookie']>
+    readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
+    readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
+    readonly useError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/error')['useError']>
+    readonly useFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/fetch')['useFetch']>
+    readonly useHead: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/head')['useHead']>
+    readonly useHeadSafe: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/head')['useHeadSafe']>
+    readonly useHydration: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/hydrate')['useHydration']>
+    readonly useId: UnwrapRef<typeof import('vue')['useId']>
+    readonly useLazyAsyncData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/asyncData')['useLazyAsyncData']>
+    readonly useLazyFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/fetch')['useLazyFetch']>
+    readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
+    readonly useLoadingIndicator: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/loading-indicator')['useLoadingIndicator']>
+    readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
+    readonly useNuxtApp: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/nuxt')['useNuxtApp']>
+    readonly useNuxtData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/asyncData')['useNuxtData']>
+    readonly useNuxtDevTools: UnwrapRef<typeof import('../../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools')['useNuxtDevTools']>
+    readonly usePinia: UnwrapRef<typeof import('../../node_modules/@pinia/nuxt/dist/runtime/composables')['usePinia']>
+    readonly usePreviewMode: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/preview')['usePreviewMode']>
+    readonly useRequestEvent: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['useRequestEvent']>
+    readonly useRequestFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['useRequestFetch']>
+    readonly useRequestHeader: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['useRequestHeader']>
+    readonly useRequestHeaders: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['useRequestHeaders']>
+    readonly useRequestURL: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/url')['useRequestURL']>
+    readonly useResponseHeader: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['useResponseHeader']>
+    readonly useRoute: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['useRoute']>
+    readonly useRouteAnnouncer: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/route-announcer')['useRouteAnnouncer']>
+    readonly useRouter: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['useRouter']>
+    readonly useRuntimeConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/nuxt')['useRuntimeConfig']>
+    readonly useRuntimeHook: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/runtime-hook')['useRuntimeHook']>
+    readonly useScript: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScript']>
+    readonly useScriptAhrefsAnalytics: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptAhrefsAnalytics']>
+    readonly useScriptBingUet: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptBingUet']>
+    readonly useScriptCalendly: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptCalendly']>
+    readonly useScriptClarity: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptClarity']>
+    readonly useScriptCloudflareWebAnalytics: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptCloudflareWebAnalytics']>
+    readonly useScriptCrisp: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptCrisp']>
+    readonly useScriptDatabuddyAnalytics: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptDatabuddyAnalytics']>
+    readonly useScriptEventPage: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptEventPage']>
+    readonly useScriptFathomAnalytics: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptFathomAnalytics']>
+    readonly useScriptGoogleAdsense: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptGoogleAdsense']>
+    readonly useScriptGoogleAnalytics: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptGoogleAnalytics']>
+    readonly useScriptGoogleMaps: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptGoogleMaps']>
+    readonly useScriptGoogleRecaptcha: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptGoogleRecaptcha']>
+    readonly useScriptGoogleSignIn: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptGoogleSignIn']>
+    readonly useScriptGoogleTagManager: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptGoogleTagManager']>
+    readonly useScriptGravatar: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptGravatar']>
+    readonly useScriptHotjar: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptHotjar']>
+    readonly useScriptIntercom: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptIntercom']>
+    readonly useScriptLemonSqueezy: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptLemonSqueezy']>
+    readonly useScriptLinkedInInsight: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptLinkedInInsight']>
+    readonly useScriptMatomoAnalytics: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptMatomoAnalytics']>
+    readonly useScriptMetaPixel: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptMetaPixel']>
+    readonly useScriptMixpanelAnalytics: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptMixpanelAnalytics']>
+    readonly useScriptNpm: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptNpm']>
+    readonly useScriptPayPal: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptPayPal']>
+    readonly useScriptPlausibleAnalytics: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptPlausibleAnalytics']>
+    readonly useScriptPostHog: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptPostHog']>
+    readonly useScriptRedditPixel: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptRedditPixel']>
+    readonly useScriptRybbitAnalytics: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptRybbitAnalytics']>
+    readonly useScriptSegment: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptSegment']>
+    readonly useScriptSnapchatPixel: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptSnapchatPixel']>
+    readonly useScriptStripe: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptStripe']>
+    readonly useScriptTikTokPixel: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptTikTokPixel']>
+    readonly useScriptTriggerConsent: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptTriggerConsent']>
+    readonly useScriptTriggerElement: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptTriggerElement']>
+    readonly useScriptUmamiAnalytics: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptUmamiAnalytics']>
+    readonly useScriptUsercentrics: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptUsercentrics']>
+    readonly useScriptVercelAnalytics: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptVercelAnalytics']>
+    readonly useScriptVimeoPlayer: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptVimeoPlayer']>
+    readonly useScriptXPixel: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptXPixel']>
+    readonly useScriptYouTubePlayer: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')['useScriptYouTubePlayer']>
+    readonly useSeoMeta: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/head')['useSeoMeta']>
+    readonly useServerHead: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/head')['useServerHead']>
+    readonly useServerHeadSafe: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/head')['useServerHeadSafe']>
+    readonly useServerSeoMeta: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/head')['useServerSeoMeta']>
+    readonly useShadowRoot: UnwrapRef<typeof import('vue')['useShadowRoot']>
+    readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
+    readonly useState: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/state')['useState']>
+    readonly useTemplateRef: UnwrapRef<typeof import('vue')['useTemplateRef']>
+    readonly useTheme: UnwrapRef<typeof import('../../app/composables/useTheme')['useTheme']>
+    readonly useTransitionState: UnwrapRef<typeof import('vue')['useTransitionState']>
+    readonly watch: UnwrapRef<typeof import('vue')['watch']>
+    readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
+    readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
+    readonly watchSyncEffect: UnwrapRef<typeof import('vue')['watchSyncEffect']>
+    readonly withCtx: UnwrapRef<typeof import('vue')['withCtx']>
+    readonly withDirectives: UnwrapRef<typeof import('vue')['withDirectives']>
+    readonly withKeys: UnwrapRef<typeof import('vue')['withKeys']>
+    readonly withMemo: UnwrapRef<typeof import('vue')['withMemo']>
+    readonly withModifiers: UnwrapRef<typeof import('vue')['withModifiers']>
+    readonly withScopeId: UnwrapRef<typeof import('vue')['withScopeId']>
+  }
+}
+
+=== FILE: .nuxt/types/layouts.d.ts ===
+import type { ComputedRef, MaybeRef } from 'vue'
+
+type ComponentProps<T> = T extends new(...args: any) => { $props: infer P } ? NonNullable<P>
+  : T extends (props: infer P, ...args: any) => any ? P
+  : {}
+
+declare module 'nuxt/app' {
+  interface NuxtLayouts {
+    admin: ComponentProps<typeof import("E:/universrity/Iau.Bazaar.View/app/layouts/admin.vue").default>
+    default: ComponentProps<typeof import("E:/universrity/Iau.Bazaar.View/app/layouts/default.vue").default>
+  }
+  export type LayoutKey = keyof NuxtLayouts extends never ? string : keyof NuxtLayouts
+  interface PageMeta {
+    layout?: MaybeRef<LayoutKey | false> | ComputedRef<LayoutKey | false> | {
+      [K in LayoutKey]: {
+        name?: MaybeRef<K | false> | ComputedRef<K | false>
+        props?: NuxtLayouts[K]
+      }
+    }[LayoutKey]
+  }
+}
+
+=== FILE: .nuxt/types/middleware.d.ts ===
+import type { NavigationGuard } from 'vue-router'
+export type MiddlewareKey = never
+declare module 'nuxt/app' {
+  interface PageMeta {
+    middleware?: MiddlewareKey | NavigationGuard | Array<MiddlewareKey | NavigationGuard>
+  }
+}
+
+=== FILE: .nuxt/types/modules.d.ts ===
+import { NuxtModule, ModuleDependencyMeta } from '@nuxt/schema'
+declare module '@nuxt/schema' {
+  interface ModuleDependencies {
+    ["pinia"]?: ModuleDependencyMeta<typeof import("@pinia/nuxt").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
+    ["@nuxt/devtools"]?: ModuleDependencyMeta<typeof import("@nuxt/devtools").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
+    ["@nuxt/telemetry"]?: ModuleDependencyMeta<typeof import("@nuxt/telemetry").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
+  }
+  interface NuxtOptions {
+    /**
+     * Configuration for `@pinia/nuxt`
+     */
+    ["pinia"]: typeof import("@pinia/nuxt").default extends NuxtModule<infer O, unknown, boolean> ? O | false : Record<string, any> | false
+    /**
+     * Configuration for `@nuxt/devtools`
+     */
+    ["devtools"]: typeof import("@nuxt/devtools").default extends NuxtModule<infer O, unknown, boolean> ? O | false : Record<string, any> | false
+    /**
+     * Configuration for `@nuxt/telemetry`
+     */
+    ["telemetry"]: typeof import("@nuxt/telemetry").default extends NuxtModule<infer O, unknown, boolean> ? O | false : Record<string, any> | false
+  }
+  interface NuxtConfig {
+    /**
+     * Configuration for `@pinia/nuxt`
+     */
+    ["pinia"]?: typeof import("@pinia/nuxt").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
+    /**
+     * Configuration for `@nuxt/devtools`
+     */
+    ["devtools"]?: typeof import("@nuxt/devtools").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
+    /**
+     * Configuration for `@nuxt/telemetry`
+     */
+    ["telemetry"]?: typeof import("@nuxt/telemetry").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
+    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["@pinia/nuxt", Exclude<NuxtConfig["pinia"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>])[],
+  }
+}
+declare module 'nuxt/schema' {
+  interface ModuleDependencies {
+    ["pinia"]?: ModuleDependencyMeta<typeof import("@pinia/nuxt").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
+    ["@nuxt/devtools"]?: ModuleDependencyMeta<typeof import("@nuxt/devtools").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
+    ["@nuxt/telemetry"]?: ModuleDependencyMeta<typeof import("@nuxt/telemetry").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
+  }
+  interface NuxtOptions {
+    /**
+     * Configuration for `@pinia/nuxt`
+     * @see https://www.npmjs.com/package/@pinia/nuxt
+     */
+    ["pinia"]: typeof import("@pinia/nuxt").default extends NuxtModule<infer O, unknown, boolean> ? O | false : Record<string, any> | false
+    /**
+     * Configuration for `@nuxt/devtools`
+     * @see https://www.npmjs.com/package/@nuxt/devtools
+     */
+    ["devtools"]: typeof import("@nuxt/devtools").default extends NuxtModule<infer O, unknown, boolean> ? O | false : Record<string, any> | false
+    /**
+     * Configuration for `@nuxt/telemetry`
+     * @see https://www.npmjs.com/package/@nuxt/telemetry
+     */
+    ["telemetry"]: typeof import("@nuxt/telemetry").default extends NuxtModule<infer O, unknown, boolean> ? O | false : Record<string, any> | false
+  }
+  interface NuxtConfig {
+    /**
+     * Configuration for `@pinia/nuxt`
+     * @see https://www.npmjs.com/package/@pinia/nuxt
+     */
+    ["pinia"]?: typeof import("@pinia/nuxt").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
+    /**
+     * Configuration for `@nuxt/devtools`
+     * @see https://www.npmjs.com/package/@nuxt/devtools
+     */
+    ["devtools"]?: typeof import("@nuxt/devtools").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
+    /**
+     * Configuration for `@nuxt/telemetry`
+     * @see https://www.npmjs.com/package/@nuxt/telemetry
+     */
+    ["telemetry"]?: typeof import("@nuxt/telemetry").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
+    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["@pinia/nuxt", Exclude<NuxtConfig["pinia"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>])[],
+  }
+}
+
+=== FILE: .nuxt/types/nitro-config.d.ts ===
+// Generated by nitro
+
+// App Config
+import type { Defu } from 'defu'
+
+
+
+type UserAppConfig = Defu<{}, []>
+
+declare module "nitropack/types" {
+  interface AppConfig extends UserAppConfig {}
+
+}
+export {}
+
+=== FILE: .nuxt/types/nitro-imports.d.ts ===
+declare global {
+  const H3Error: typeof import('../../node_modules/h3').H3Error
+  const H3Event: typeof import('../../node_modules/h3').H3Event
+  const __buildAssetsURL: typeof import('../../node_modules/@nuxt/nitro-server/dist/runtime/utils/paths').buildAssetsURL
+  const __publicAssetsURL: typeof import('../../node_modules/@nuxt/nitro-server/dist/runtime/utils/paths').publicAssetsURL
+  const appendCorsHeaders: typeof import('../../node_modules/h3').appendCorsHeaders
+  const appendCorsPreflightHeaders: typeof import('../../node_modules/h3').appendCorsPreflightHeaders
+  const appendHeader: typeof import('../../node_modules/h3').appendHeader
+  const appendHeaders: typeof import('../../node_modules/h3').appendHeaders
+  const appendResponseHeader: typeof import('../../node_modules/h3').appendResponseHeader
+  const appendResponseHeaders: typeof import('../../node_modules/h3').appendResponseHeaders
+  const assertMethod: typeof import('../../node_modules/h3').assertMethod
+  const cachedEventHandler: typeof import('../../node_modules/nitropack/dist/runtime/internal/cache').cachedEventHandler
+  const cachedFunction: typeof import('../../node_modules/nitropack/dist/runtime/internal/cache').cachedFunction
+  const callNodeListener: typeof import('../../node_modules/h3').callNodeListener
+  const clearResponseHeaders: typeof import('../../node_modules/h3').clearResponseHeaders
+  const clearSession: typeof import('../../node_modules/h3').clearSession
+  const createApp: typeof import('../../node_modules/h3').createApp
+  const createAppEventHandler: typeof import('../../node_modules/h3').createAppEventHandler
+  const createError: typeof import('../../node_modules/h3').createError
+  const createEvent: typeof import('../../node_modules/h3').createEvent
+  const createEventStream: typeof import('../../node_modules/h3').createEventStream
+  const createRouter: typeof import('../../node_modules/h3').createRouter
+  const defaultContentType: typeof import('../../node_modules/h3').defaultContentType
+  const defineAppConfig: typeof import('../../node_modules/@nuxt/nitro-server/dist/runtime/utils/config').defineAppConfig
+  const defineCachedEventHandler: typeof import('../../node_modules/nitropack/dist/runtime/internal/cache').defineCachedEventHandler
+  const defineCachedFunction: typeof import('../../node_modules/nitropack/dist/runtime/internal/cache').defineCachedFunction
+  const defineEventHandler: typeof import('../../node_modules/h3').defineEventHandler
+  const defineLazyEventHandler: typeof import('../../node_modules/h3').defineLazyEventHandler
+  const defineNitroErrorHandler: typeof import('../../node_modules/nitropack/dist/runtime/internal/error/utils').defineNitroErrorHandler
+  const defineNitroPlugin: typeof import('../../node_modules/nitropack/dist/runtime/internal/plugin').defineNitroPlugin
+  const defineNodeListener: typeof import('../../node_modules/h3').defineNodeListener
+  const defineNodeMiddleware: typeof import('../../node_modules/h3').defineNodeMiddleware
+  const defineRenderHandler: typeof import('../../node_modules/nitropack/dist/runtime/internal/renderer').defineRenderHandler
+  const defineRequestMiddleware: typeof import('../../node_modules/h3').defineRequestMiddleware
+  const defineResponseMiddleware: typeof import('../../node_modules/h3').defineResponseMiddleware
+  const defineRouteMeta: typeof import('../../node_modules/nitropack/dist/runtime/internal/meta').defineRouteMeta
+  const defineTask: typeof import('../../node_modules/nitropack/dist/runtime/internal/task').defineTask
+  const defineWebSocket: typeof import('../../node_modules/h3').defineWebSocket
+  const defineWebSocketHandler: typeof import('../../node_modules/h3').defineWebSocketHandler
+  const deleteCookie: typeof import('../../node_modules/h3').deleteCookie
+  const dynamicEventHandler: typeof import('../../node_modules/h3').dynamicEventHandler
+  const eventHandler: typeof import('../../node_modules/h3').eventHandler
+  const fetchWithEvent: typeof import('../../node_modules/h3').fetchWithEvent
+  const fromNodeMiddleware: typeof import('../../node_modules/h3').fromNodeMiddleware
+  const fromPlainHandler: typeof import('../../node_modules/h3').fromPlainHandler
+  const fromWebHandler: typeof import('../../node_modules/h3').fromWebHandler
+  const getCookie: typeof import('../../node_modules/h3').getCookie
+  const getHeader: typeof import('../../node_modules/h3').getHeader
+  const getHeaders: typeof import('../../node_modules/h3').getHeaders
+  const getMethod: typeof import('../../node_modules/h3').getMethod
+  const getProxyRequestHeaders: typeof import('../../node_modules/h3').getProxyRequestHeaders
+  const getQuery: typeof import('../../node_modules/h3').getQuery
+  const getRequestFingerprint: typeof import('../../node_modules/h3').getRequestFingerprint
+  const getRequestHeader: typeof import('../../node_modules/h3').getRequestHeader
+  const getRequestHeaders: typeof import('../../node_modules/h3').getRequestHeaders
+  const getRequestHost: typeof import('../../node_modules/h3').getRequestHost
+  const getRequestIP: typeof import('../../node_modules/h3').getRequestIP
+  const getRequestPath: typeof import('../../node_modules/h3').getRequestPath
+  const getRequestProtocol: typeof import('../../node_modules/h3').getRequestProtocol
+  const getRequestURL: typeof import('../../node_modules/h3').getRequestURL
+  const getRequestWebStream: typeof import('../../node_modules/h3').getRequestWebStream
+  const getResponseHeader: typeof import('../../node_modules/h3').getResponseHeader
+  const getResponseHeaders: typeof import('../../node_modules/h3').getResponseHeaders
+  const getResponseStatus: typeof import('../../node_modules/h3').getResponseStatus
+  const getResponseStatusText: typeof import('../../node_modules/h3').getResponseStatusText
+  const getRouteRules: typeof import('../../node_modules/nitropack/dist/runtime/internal/route-rules').getRouteRules
+  const getRouterParam: typeof import('../../node_modules/h3').getRouterParam
+  const getRouterParams: typeof import('../../node_modules/h3').getRouterParams
+  const getSession: typeof import('../../node_modules/h3').getSession
+  const getValidatedQuery: typeof import('../../node_modules/h3').getValidatedQuery
+  const getValidatedRouterParams: typeof import('../../node_modules/h3').getValidatedRouterParams
+  const handleCacheHeaders: typeof import('../../node_modules/h3').handleCacheHeaders
+  const handleCors: typeof import('../../node_modules/h3').handleCors
+  const isCorsOriginAllowed: typeof import('../../node_modules/h3').isCorsOriginAllowed
+  const isError: typeof import('../../node_modules/h3').isError
+  const isEvent: typeof import('../../node_modules/h3').isEvent
+  const isEventHandler: typeof import('../../node_modules/h3').isEventHandler
+  const isMethod: typeof import('../../node_modules/h3').isMethod
+  const isPreflightRequest: typeof import('../../node_modules/h3').isPreflightRequest
+  const isStream: typeof import('../../node_modules/h3').isStream
+  const isWebResponse: typeof import('../../node_modules/h3').isWebResponse
+  const lazyEventHandler: typeof import('../../node_modules/h3').lazyEventHandler
+  const nitroPlugin: typeof import('../../node_modules/nitropack/dist/runtime/internal/plugin').nitroPlugin
+  const parseCookies: typeof import('../../node_modules/h3').parseCookies
+  const promisifyNodeListener: typeof import('../../node_modules/h3').promisifyNodeListener
+  const proxyRequest: typeof import('../../node_modules/h3').proxyRequest
+  const readBody: typeof import('../../node_modules/h3').readBody
+  const readFormData: typeof import('../../node_modules/h3').readFormData
+  const readMultipartFormData: typeof import('../../node_modules/h3').readMultipartFormData
+  const readRawBody: typeof import('../../node_modules/h3').readRawBody
+  const readValidatedBody: typeof import('../../node_modules/h3').readValidatedBody
+  const removeResponseHeader: typeof import('../../node_modules/h3').removeResponseHeader
+  const runTask: typeof import('../../node_modules/nitropack/dist/runtime/internal/task').runTask
+  const sanitizeStatusCode: typeof import('../../node_modules/h3').sanitizeStatusCode
+  const sanitizeStatusMessage: typeof import('../../node_modules/h3').sanitizeStatusMessage
+  const sealSession: typeof import('../../node_modules/h3').sealSession
+  const send: typeof import('../../node_modules/h3').send
+  const sendError: typeof import('../../node_modules/h3').sendError
+  const sendIterable: typeof import('../../node_modules/h3').sendIterable
+  const sendNoContent: typeof import('../../node_modules/h3').sendNoContent
+  const sendProxy: typeof import('../../node_modules/h3').sendProxy
+  const sendRedirect: typeof import('../../node_modules/h3').sendRedirect
+  const sendStream: typeof import('../../node_modules/h3').sendStream
+  const sendWebResponse: typeof import('../../node_modules/h3').sendWebResponse
+  const serveStatic: typeof import('../../node_modules/h3').serveStatic
+  const setCookie: typeof import('../../node_modules/h3').setCookie
+  const setHeader: typeof import('../../node_modules/h3').setHeader
+  const setHeaders: typeof import('../../node_modules/h3').setHeaders
+  const setResponseHeader: typeof import('../../node_modules/h3').setResponseHeader
+  const setResponseHeaders: typeof import('../../node_modules/h3').setResponseHeaders
+  const setResponseStatus: typeof import('../../node_modules/h3').setResponseStatus
+  const splitCookiesString: typeof import('../../node_modules/h3').splitCookiesString
+  const toEventHandler: typeof import('../../node_modules/h3').toEventHandler
+  const toNodeListener: typeof import('../../node_modules/h3').toNodeListener
+  const toPlainHandler: typeof import('../../node_modules/h3').toPlainHandler
+  const toWebHandler: typeof import('../../node_modules/h3').toWebHandler
+  const toWebRequest: typeof import('../../node_modules/h3').toWebRequest
+  const unsealSession: typeof import('../../node_modules/h3').unsealSession
+  const updateSession: typeof import('../../node_modules/h3').updateSession
+  const useAppConfig: typeof import('../../node_modules/nitropack/dist/runtime/internal/config').useAppConfig
+  const useBase: typeof import('../../node_modules/h3').useBase
+  const useEvent: typeof import('../../node_modules/nitropack/dist/runtime/internal/context').useEvent
+  const useNitroApp: typeof import('../../node_modules/nitropack/dist/runtime/internal/app').useNitroApp
+  const useRuntimeConfig: typeof import('../../node_modules/nitropack/dist/runtime/internal/config').useRuntimeConfig
+  const useSession: typeof import('../../node_modules/h3').useSession
+  const useStorage: typeof import('../../node_modules/nitropack/dist/runtime/internal/storage').useStorage
+  const writeEarlyHints: typeof import('../../node_modules/h3').writeEarlyHints
+}
+// for type re-export
+declare global {
+  // @ts-ignore
+  export type { EventHandler, EventHandlerRequest, EventHandlerResponse, EventHandlerObject, H3EventContext } from '../../node_modules/h3'
+  import('../../node_modules/h3')
+}
+export { H3Event, H3Error, appendCorsHeaders, appendCorsPreflightHeaders, appendHeader, appendHeaders, appendResponseHeader, appendResponseHeaders, assertMethod, callNodeListener, clearResponseHeaders, clearSession, createApp, createAppEventHandler, createError, createEvent, createEventStream, createRouter, defaultContentType, defineEventHandler, defineLazyEventHandler, defineNodeListener, defineNodeMiddleware, defineRequestMiddleware, defineResponseMiddleware, defineWebSocket, defineWebSocketHandler, deleteCookie, dynamicEventHandler, eventHandler, fetchWithEvent, fromNodeMiddleware, fromPlainHandler, fromWebHandler, getCookie, getHeader, getHeaders, getMethod, getProxyRequestHeaders, getQuery, getRequestFingerprint, getRequestHeader, getRequestHeaders, getRequestHost, getRequestIP, getRequestPath, getRequestProtocol, getRequestURL, getRequestWebStream, getResponseHeader, getResponseHeaders, getResponseStatus, getResponseStatusText, getRouterParam, getRouterParams, getSession, getValidatedQuery, getValidatedRouterParams, handleCacheHeaders, handleCors, isCorsOriginAllowed, isError, isEvent, isEventHandler, isMethod, isPreflightRequest, isStream, isWebResponse, lazyEventHandler, parseCookies, promisifyNodeListener, proxyRequest, readBody, readFormData, readMultipartFormData, readRawBody, readValidatedBody, removeResponseHeader, sanitizeStatusCode, sanitizeStatusMessage, sealSession, send, sendError, sendIterable, sendNoContent, sendProxy, sendRedirect, sendStream, sendWebResponse, serveStatic, setCookie, setHeader, setHeaders, setResponseHeader, setResponseHeaders, setResponseStatus, splitCookiesString, toEventHandler, toNodeListener, toPlainHandler, toWebHandler, toWebRequest, unsealSession, updateSession, useBase, useSession, writeEarlyHints } from 'h3';
+export { useNitroApp } from 'nitropack/runtime/internal/app';
+export { useRuntimeConfig, useAppConfig } from 'nitropack/runtime/internal/config';
+export { defineNitroPlugin, nitroPlugin } from 'nitropack/runtime/internal/plugin';
+export { defineCachedFunction, defineCachedEventHandler, cachedFunction, cachedEventHandler } from 'nitropack/runtime/internal/cache';
+export { useStorage } from 'nitropack/runtime/internal/storage';
+export { defineRenderHandler } from 'nitropack/runtime/internal/renderer';
+export { defineRouteMeta } from 'nitropack/runtime/internal/meta';
+export { getRouteRules } from 'nitropack/runtime/internal/route-rules';
+export { useEvent } from 'nitropack/runtime/internal/context';
+export { defineTask, runTask } from 'nitropack/runtime/internal/task';
+export { defineNitroErrorHandler } from 'nitropack/runtime/internal/error/utils';
+export { buildAssetsURL as __buildAssetsURL, publicAssetsURL as __publicAssetsURL } from 'E:/universrity/Iau.Bazaar.View/node_modules/@nuxt/nitro-server/dist/runtime/utils/paths';
+export { defineAppConfig } from 'E:/universrity/Iau.Bazaar.View/node_modules/@nuxt/nitro-server/dist/runtime/utils/config';
+
+=== FILE: .nuxt/types/nitro-layouts.d.ts ===
+export type LayoutKey = "admin" | "default"
+declare module 'nitropack' {
+  interface NitroRouteConfig {
+    appLayout?: LayoutKey | false
+  }
+  interface NitroRouteRules {
+    appLayout?: LayoutKey | false
+  }
+}
+declare module 'nitropack/types' {
+  interface NitroRouteConfig {
+    appLayout?: LayoutKey | false
+  }
+  interface NitroRouteRules {
+    appLayout?: LayoutKey | false
+  }
+}
+
+=== FILE: .nuxt/types/nitro-middleware.d.ts ===
+export type MiddlewareKey = never
+declare module 'nitropack/types' {
+  interface NitroRouteConfig {
+    appMiddleware?: MiddlewareKey | MiddlewareKey[] | Record<MiddlewareKey, boolean>
+  }
+}
+declare module 'nitropack' {
+  interface NitroRouteConfig {
+    appMiddleware?: MiddlewareKey | MiddlewareKey[] | Record<MiddlewareKey, boolean>
+  }
+}
+
+=== FILE: .nuxt/types/nitro-nuxt.d.ts ===
+
+/// <reference path="nitro-layouts.d.ts" />
+/// <reference path="app.config.d.ts" />
+/// <reference path="runtime-config.d.ts" />
+/// <reference path="../../node_modules/@nuxt/nitro-server/dist/index.d.mts" />
+/// <reference path="nitro-middleware.d.ts" />
+
+import type { RuntimeConfig } from 'nuxt/schema'
+import type { H3Event } from 'h3'
+import type { LogObject } from 'consola'
+import type { NuxtIslandContext, NuxtIslandResponse, NuxtRenderHTMLContext } from 'nuxt/app'
+
+declare module 'nitropack' {
+  interface NitroRuntimeConfigApp {
+    buildAssetsDir: string
+    cdnURL: string
+  }
+  interface NitroRuntimeConfig extends RuntimeConfig {}
+  interface NitroRouteConfig {
+    ssr?: boolean
+    noScripts?: boolean
+    /** @deprecated Use `noScripts` instead */
+    experimentalNoScripts?: boolean
+  }
+  interface NitroRouteRules {
+    ssr?: boolean
+    noScripts?: boolean
+    /** @deprecated Use `noScripts` instead */
+    experimentalNoScripts?: boolean
+    appMiddleware?: Record<string, boolean>
+    appLayout?: string | false
+  }
+  interface NitroRuntimeHooks {
+    'dev:ssr-logs': (ctx: { logs: LogObject[], path: string }) => void | Promise<void>
+    'render:html': (htmlContext: NuxtRenderHTMLContext, context: { event: H3Event }) => void | Promise<void>
+    'render:island': (islandResponse: NuxtIslandResponse, context: { event: H3Event, islandContext: NuxtIslandContext }) => void | Promise<void>
+  }
+}
+declare module 'nitropack/types' {
+  interface NitroRuntimeConfigApp {
+    buildAssetsDir: string
+    cdnURL: string
+  }
+  interface NitroRuntimeConfig extends RuntimeConfig {}
+  interface NitroRouteConfig {
+    ssr?: boolean
+    noScripts?: boolean
+    /** @deprecated Use `noScripts` instead */
+    experimentalNoScripts?: boolean
+  }
+  interface NitroRouteRules {
+    ssr?: boolean
+    noScripts?: boolean
+    /** @deprecated Use `noScripts` instead */
+    experimentalNoScripts?: boolean
+    appMiddleware?: Record<string, boolean>
+    appLayout?: string | false
+  }
+  interface NitroRuntimeHooks {
+    'dev:ssr-logs': (ctx: { logs: LogObject[], path: string }) => void | Promise<void>
+    'render:html': (htmlContext: NuxtRenderHTMLContext, context: { event: H3Event }) => void | Promise<void>
+    'render:island': (islandResponse: NuxtIslandResponse, context: { event: H3Event, islandContext: NuxtIslandContext }) => void | Promise<void>
+  }
+}
+
+
+=== FILE: .nuxt/types/nitro-routes.d.ts ===
+// Generated by nitro
+import type { Serialize, Simplify } from "nitropack/types";
+declare module "nitropack/types" {
+  type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
+  interface InternalApi {
+    '/__nuxt_error': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxt/nitro-server/dist/runtime/handlers/renderer').default>>>>
+    }
+    '/__nuxt_island/**': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/#internal/nuxt/island-renderer').default>>>>
+    }
+  }
+}
+export {}
+
+=== FILE: .nuxt/types/nitro.d.ts ===
+/// <reference path="./nitro-routes.d.ts" />
+/// <reference path="./nitro-config.d.ts" />
+/// <reference path="./nitro-imports.d.ts" />
+
+=== FILE: .nuxt/types/plugins.d.ts ===
+// Generated by Nuxt'
+import type { Plugin } from '#app'
+
+type Decorate<T extends Record<string, any>> = { [K in keyof T as K extends string ? `$${K}` : never]: T[K] }
+
+type InjectionType<A extends Plugin> = A extends {default: Plugin<infer T>} ? Decorate<T> : unknown
+
+type NuxtAppInjections = 
+  InjectionType<typeof import("../../node_modules/@pinia/nuxt/dist/runtime/payload-plugin.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/revive-payload.client.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/head/runtime/plugins/unhead.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/router.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/browser-devtools-timing.client.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/payload.client.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/dev-server-logs.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/navigation-repaint.client.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/check-outdated-build.client.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/revive-payload.server.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/chunk-reload.client.js")> &
+  InjectionType<typeof import("../../node_modules/@pinia/nuxt/dist/runtime/plugin.vue3.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/prefetch.client.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/check-if-page-unused.js")> &
+  InjectionType<typeof import("../../node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.server.js")> &
+  InjectionType<typeof import("../../node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.client.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/warn.dev.server.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/check-if-layout-used.js")> &
+  InjectionType<typeof import("../../app/plugins/api")> &
+  InjectionType<typeof import("../../app/plugins/theme.client")>
+
+declare module '#app' {
+  interface NuxtApp extends NuxtAppInjections { }
+
+  interface NuxtAppLiterals {
+    pluginName: 'vue-devtools-client' | 'nuxt:revive-payload:client' | 'nuxt:head' | 'nuxt:router' | 'nuxt:browser-devtools-timing' | 'nuxt:payload' | 'nuxt:revive-payload:server' | 'nuxt:chunk-reload' | 'pinia' | 'nuxt:global-components' | 'nuxt:prefetch' | 'nuxt:checkIfPageUnused' | 'nuxt:checkIfLayoutUsed'
+  }
+}
+
+declare module 'vue' {
+  interface ComponentCustomProperties extends NuxtAppInjections { }
+}
+
+export { }
+
+
+=== FILE: .nuxt/types/runtime-config.d.ts ===
+import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRuntimeConfig } from 'nuxt/schema'
+  interface SharedRuntimeConfig {
+   app: {
+      buildId: string,
+
+      baseURL: string,
+
+      buildAssetsDir: string,
+
+      cdnURL: string,
+   },
+
+   nitro: {
+      envPrefix: string,
+   },
+  }
+  interface SharedPublicRuntimeConfig {
+   apiBase: string,
+  }
+declare module '@nuxt/schema' {
+  interface RuntimeConfig extends UserRuntimeConfig {}
+  interface PublicRuntimeConfig extends UserPublicRuntimeConfig {}
+}
+declare module 'nuxt/schema' {
+  interface RuntimeConfig extends SharedRuntimeConfig {}
+  interface PublicRuntimeConfig extends SharedPublicRuntimeConfig {}
+}
+declare module 'vue' {
+        interface ComponentCustomProperties {
+          $config: UserRuntimeConfig
+        }
+      }
+
+=== FILE: .nuxt/types/shared-imports.d.ts ===
+// Generated by auto imports
+export {}
+declare global {
+  const useRuntimeConfig: (event?: import('h3').H3Event) => import('nuxt/schema').RuntimeConfig
+  const useAppConfig: () => import('nuxt/schema').AppConfig
+  const defineAppConfig: <C extends import('nuxt/schema').AppConfigInput>(config: C) => C
+  const createError: typeof import('h3')['createError']
+  const setResponseStatus: typeof import('h3')['setResponseStatus']
+
+}
+
+=== FILE: .nuxt/types/vue-shim.d.ts ===
+
+
+=== FILE: app/app.vue ===
+<template>
+  <Html lang="fa" dir="rtl">
+    <Body class="bg-slate-100 dark:bg-slate-900">
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </Body>
+  </Html>
+</template>
+
+=== FILE: app/assets/css/main.css ===
+@import 'tailwindcss';
+@import '@fontsource/vazirmatn';
+
+body {
+  font-family: 'Vazirmatn', sans-serif;
+}
+
+
+=== FILE: app/components/component.vue ===
+
+
+=== FILE: app/composables/useAuth.ts ===
+
+
+=== FILE: app/composables/useTheme.ts ===
+export const useTheme = () => {
+  const toggleTheme = () => {
+    const html = document.documentElement;
+
+    html.classList.toggle('dark');
+
+    localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+  };
+
+  const loadTheme = () => {
+    if (
+      localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
+    }
+  };
+
+  return {
+    toggleTheme,
+    loadTheme,
+  };
+};
+
+
+=== FILE: app/layouts/admin.vue ===
+<template>
+  <div class="min-h-screen bg-slate-100 dark:bg-slate-900">
+    <!-- Sidebar -->
+    <aside
+      class="fixed right-0 top-0 h-screen w-64 bg-white dark:bg-slate-800 shadow-xl border-l border-slate-200 dark:border-slate-700"
+    >
+      <div class="p-6">
+        <h1 class="text-2xl font-bold text-primary-600">پنل مدیریت</h1>
+      </div>
+
+      <nav class="px-4 space-y-2">
+        <NuxtLink
+          to="/admin"
+          class="block p-3 rounded-xl hover:bg-primary-50 dark:hover:bg-slate-700"
+        >
+          داشبورد
+        </NuxtLink>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <main class="mr-64 p-8">
+      <slot />
+    </main>
+  </div>
+</template>
+
+
+=== FILE: app/layouts/default.vue ===
+
+
+=== FILE: app/middleware/01.auth.global.ts ===
+import { useAuthStore } from '~/stores/auth';
+
+export default defineNuxtRouteMiddleware(() => {
+  const auth = useAuthStore();
+
+  if (!auth.isAuthenticated) {
+    return navigateTo('/login');
+  }
+});
+
+
+=== FILE: app/middleware/02.guest.global.ts ===
+
+
+=== FILE: app/middleware/03.admin.global.ts ===
+import { useAuthStore } from '~/stores/auth';
+
+export default defineNuxtRouteMiddleware(() => {
+  const auth = useAuthStore();
+
+  if (!auth.user) {
+    return navigateTo('/login');
+  }
+
+  const roles = auth.user.role || [];
+
+  const isAdmin = roles.includes('Admin') || roles.includes('Operator');
+
+  if (!isAdmin) {
+    return navigateTo('/');
+  }
+});
+
+
+=== FILE: app/pages/admin/index.vue ===
+<script setup>
+definePageMeta({
+  layout: 'admin',
+  middleware: ['auth', 'admin'],
+});
+</script>
+
+<template>
+  <div>
+    <h1 class="text-4xl font-bold">Admin Dashboard</h1>
+  </div>
+</template>
+
+
+=== FILE: app/pages/index.vue ===
+<template>
+    Index
+</template> 
+
+=== FILE: app/pages/login.vue ===
+<template>
+  <div
+    class="min-h-screen flex items-center justify-center bg-slate-100 dark:bg-slate-900"
+  >
+    <div
+      class="w-full max-w-md bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-8"
+    >
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-primary-600">ورود به سامانه</h1>
+
+        <p class="text-slate-500 mt-2">لطفا وارد حساب کاربری خود شوید</p>
+      </div>
+
+      <form class="space-y-5">
+        <div>
+          <label class="block mb-2 text-sm"> ایمیل </label>
+
+          <input
+            type="email"
+            class="w-full p-3 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-700"
+          />
+        </div>
+
+        <div>
+          <label class="block mb-2 text-sm"> رمز عبور </label>
+
+          <input
+            type="password"
+            class="w-full p-3 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-700"
+          />
+        </div>
+
+        <button
+          class="w-full bg-primary-600 hover:bg-primary-700 transition text-white py-3 rounded-2xl font-bold"
+        >
+          ورود
+        </button>
+      </form>
+    </div>
+  </div>
+</template>
+
+
+=== FILE: app/pages/register.vue ===
+<template>
+    Register
+</template> 
+
+=== FILE: app/plugins/api.ts ===
+import axios from 'axios';
+import { useAuthStore } from '~/stores/auth';
+
+export default defineNuxtPlugin(() => {
+  const config = useRuntimeConfig();
+
+  const api = axios.create({
+    baseURL: config.public.apiBase,
+  });
+
+  api.interceptors.request.use((config) => {
+    const token = localStorage.getItem('access_token');
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+
+    return config;
+  });
+
+  api.interceptors.response.use(
+    (response) => response,
+
+    async (error) => {
+      const auth = useAuthStore();
+
+      if (error.response?.status === 401) {
+        try {
+          const response = await axios.post(
+            `${config.public.apiBase}/auth/refresh`,
+            {
+              refreshToken: auth.refreshToken,
+            }
+          );
+
+          auth.setTokens(response.data.accessToken, response.data.refreshToken);
+
+          error.config.headers.Authorization = `Bearer ${response.data.accessToken}`;
+
+          return api.request(error.config);
+        } catch {
+          auth.logout();
+        }
+      }
+
+      return Promise.reject(error);
+    }
+  );
+
+  return {
+    provide: {
+      api,
+    },
+  };
+});
+
+
+=== FILE: app/plugins/theme.client.ts ===
+import { useTheme } from '~/composables/useTheme';
+
+export default defineNuxtPlugin(() => {
+  const { loadTheme } = useTheme();
+
+  loadTheme();
+});
+
+
+=== FILE: app/public/public.ts ===
+
+
+=== FILE: app/server/server.ts ===
+
+
+=== FILE: app/services/servic.ts ===
+
+
+=== FILE: app/stores/auth.client.ts ===
+import { useAuthStore } from './auth';
+
+export default defineNuxtPlugin(() => {
+  const auth = useAuthStore();
+
+  auth.loadFromStorage();
+});
+
+
+=== FILE: app/stores/auth.ts ===
+import { defineStore } from 'pinia';
+import jwtDecode from 'jwt-decode';
+
+export const useAuthStore = defineStore('auth', {
+  state: () => ({
+    user: null as any,
+    accessToken: '',
+    refreshToken: '',
+    isAuthenticated: false,
+  }),
+
+  actions: {
+    setTokens(accessToken: string, refreshToken: string) {
+      this.accessToken = accessToken;
+      this.refreshToken = refreshToken;
+
+      localStorage.setItem('access_token', accessToken);
+      localStorage.setItem('refresh_token', refreshToken);
+
+      this.decodeUser();
+    },
+
+    decodeUser() {
+      const token = this.accessToken;
+
+      if (!token) return;
+
+      const decoded: any = jwtDecode(token);
+
+      this.user = decoded;
+      this.isAuthenticated = true;
+    },
+
+    logout() {
+      this.user = null;
+      this.accessToken = '';
+      this.refreshToken = '';
+      this.isAuthenticated = false;
+
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+
+      navigateTo('/login');
+    },
+
+    loadFromStorage() {
+      const accessToken = localStorage.getItem('access_token');
+      const refreshToken = localStorage.getItem('refresh_token');
+
+      if (accessToken) {
+        this.accessToken = accessToken;
+        this.refreshToken = refreshToken || '';
+        this.decodeUser();
+      }
+    },
+  },
+});
+
+
+=== FILE: app/types/auth.ts ===
+
+
+=== FILE: nuxt.config.ts ===
+// https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from '@tailwindcss/vite';
+import { defineNuxtConfig } from 'nuxt/config';
+
+export default defineNuxtConfig({
+  compatibilityDate: '2025-07-15',
+  devtools: { enabled: true },
+  modules: ['@pinia/nuxt'],
+  css: ['./app/assets/css/main.css'],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  runtimeConfig: {
+    public: {
+      apiBase: 'https://localhost:5001/api',
+    },
+  },
+});
+
+
+=== FILE: package-lock.json ===
 {
   "name": "nuxt-app",
   "lockfileVersion": 3,
@@ -11415,3 +13825,93 @@
     }
   }
 }
+
+
+=== FILE: package.json ===
+{
+  "name": "nuxt-app",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "@fontsource/vazirmatn": "^5.2.8",
+    "@pinia/nuxt": "^0.11.3",
+    "@tailwindcss/vite": "^4.3.0",
+    "axios": "^1.16.1",
+    "jwt-decode": "^4.0.0",
+    "nuxt": "^4.4.6",
+    "pinia": "^3.0.4",
+    "tailwindcss": "^4.3.0",
+    "vue": "^3.5.34",
+    "vue-router": "^5.0.7"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.3"
+  }
+}
+
+
+=== FILE: tailwind.config.js ===
+module.exports = {
+  darkMode: 'class',
+
+  content: [
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './app.vue',
+  ],
+
+  //plugins: [require('tailwindcss-rtl')],
+
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',
+          900: '#0c4a6e',
+        },
+      },
+    },
+  },
+};
+
+
+=== FILE: tsconfig.json ===
+{
+  // https://nuxt.com/docs/guide/concepts/typescript
+  "files": [],
+  "references": [
+    {
+      "path": "./.nuxt/tsconfig.app.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.server.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.shared.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.node.json"
+    }
+  ]
+}
+
+

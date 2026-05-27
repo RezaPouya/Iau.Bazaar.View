@@ -1,1 +1,10 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import '@fontsource/vazirmatn';
+
+body {
+  font-family: 'Vazirmatn', sans-serif;
+}
+
+.rounded-5px {
+  border-radius: 5px;
+}
