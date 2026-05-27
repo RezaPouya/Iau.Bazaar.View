@@ -83,7 +83,7 @@ export const useAuthStore = defineStore('auth', () => {
   };
 
   // Restore session from sessionStorage on app load
-  const restoreSession = () => {
+  const restoreSession = async () => {
     const storedAccessToken = sessionStorage.getItem('access_token');
     const storedRefreshToken = sessionStorage.getItem('refresh_token');
     const storedUser = sessionStorage.getItem('user');

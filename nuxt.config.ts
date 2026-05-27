@@ -42,7 +42,8 @@ export default defineNuxtConfig({
           'X-Frame-Options': 'DENY',
           'X-XSS-Protection': '1; mode=block',
           'Referrer-Policy': 'strict-origin-when-cross-origin',
-          'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;"
+          // ✅ Fix CSP to allow API connections
+          'Content-Security-Policy': "default-src 'self'; connect-src 'self' https://localhost:7139 https://localhost:7139; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;"
         }
       }
     }

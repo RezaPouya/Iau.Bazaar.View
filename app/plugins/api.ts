@@ -16,7 +16,8 @@ export default defineNuxtPlugin(() => {
         config.headers.Authorization = `Bearer ${auth.accessToken}`;
         // Add additional security headers
         config.headers['X-Requested-With'] = 'XMLHttpRequest';
-        config.headers['X-Tab-Id'] = auth.tabId;
+        // ❌ REMOVE THIS LINE - tabId doesn't exist
+        // config.headers['X-Tab-Id'] = auth.tabId;
       }
       return config;
     },
