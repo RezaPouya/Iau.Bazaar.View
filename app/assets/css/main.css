@@ -5,6 +5,12 @@ body {
   font-family: 'Vazirmatn', sans-serif;
 }
 
-.rounded-5px {
-  border-radius: 5px;
+@layer utilities {
+  .rounded-5px {
+    border-radius: 5px;
+  }
+  
+  .rounded-7px {
+    border-radius: 7px;
+  }
 }

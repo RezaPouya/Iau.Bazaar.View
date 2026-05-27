@@ -1,81 +1,72 @@
-import axios from 'axios'
-import type { ApiResponse } from '~/types/api'
-import type { LoginResponse } from '~/types/auth'
+import axios from 'axios';
 
 export default defineNuxtPlugin(() => {
-
-  const config = useRuntimeConfig()
-
-  const auth = useAuthStore()
+  const config = useRuntimeConfig();
+  const auth = useAuthStore();
 
   const api = axios.create({
-    baseURL: config.public.apiBase
-  })
+    baseURL: config.public.apiBase,
+    timeout: 30000,
+  });
 
-  // Request interceptor
-  api.interceptors.request.use((config) => {
-
-    if (auth.accessToken) {
-
-      config.headers.Authorization =
-        `Bearer ${auth.accessToken}`
+  // Add request interceptor for security headers
+  api.interceptors.request.use(
+    (config) => {
+      if (auth.accessToken) {
+        config.headers.Authorization = `Bearer ${auth.accessToken}`;
+        // Add additional security headers
+        config.headers['X-Requested-With'] = 'XMLHttpRequest';
+        config.headers['X-Tab-Id'] = auth.tabId;
+      }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
     }
+  );
 
-    return config
-  })
-
-  // Response interceptor
+  // Response interceptor with better error handling
   api.interceptors.response.use(
-
-    response => response,
-
+    (response) => response,
     async (error) => {
-
-      const originalRequest = error.config
-
-      // Token expired
-      if (
-        error.response?.status === 401 &&
-        !originalRequest._retry
-      ) {
-
-        originalRequest._retry = true
-
-        try {
-
-          const response = await axios.post<
-            ApiResponse<LoginResponse>
-          >(
-            `${config.public.apiBase}/account/sign-in-refresh-token`,
-            {
-              refreshToken: auth.refreshToken
+      const originalRequest = error.config;
+      
+      // Prevent infinite loops
+      if (error.response?.status === 401 && !originalRequest._retry) {
+        originalRequest._retry = true;
+        
+        // Try to refresh token
+        if (auth.refreshToken) {
+          try {
+            await auth.refreshAuthToken();
+            originalRequest.headers.Authorization = `Bearer ${auth.accessToken}`;
+            return api(originalRequest);
+          } catch (refreshError) {
+            // Refresh failed, clear auth and redirect
+            auth.clearAuth();
+            
+            // Store intended destination for after login
+            const redirectUrl = window.location.pathname;
+            if (redirectUrl !== '/login') {
+              sessionStorage.setItem('redirectAfterLogin', redirectUrl);
             }
-          )
-
-          const data = response.data.data
-
-          auth.setAuth(data)
-
-          originalRequest.headers.Authorization =
-            `Bearer ${data.accessToken}`
-
-          return api(originalRequest)
-
-        } catch {
-
-          auth.clearAuth()
-
-          return navigateTo('/login')
+            
+            await navigateTo('/login');
+            return Promise.reject(refreshError);
+          }
+        } else {
+          auth.clearAuth();
+          await navigateTo('/login');
         }
       }
-
-      return Promise.reject(error)
+      
+      return Promise.reject(error);
     }
-  )
+  );
 
   return {
     provide: {
-      api
-    }
-  }
-})
+      api,
+    },
+  };
+});

@@ -1,92 +1,114 @@
-import { defineStore } from 'pinia'
-import type {
-  LoginResponse,
-  AuthUser
-} from '~/types/auth'
+import { defineStore } from 'pinia';
+import type { AuthUser, LoginResponse } from '~/types/auth';
+import { getTokenExpiration } from '~/utils/jwt';
 
-export const useAuthStore = defineStore('auth', {
+export const useAuthStore = defineStore('auth', () => {
+  const accessToken = ref('');
+  const refreshToken = ref('');
+  const user = ref<AuthUser | null>(null);
+  const refreshTimeout = ref<NodeJS.Timeout | null>(null);
 
-  state: () => ({
+  const isAuthenticated = computed(() => !!accessToken.value);
 
-    accessToken: '',
+  const scheduleRefresh = () => {
+    if (!accessToken.value) return;
 
-    refreshToken: '',
+    const expiration = getTokenExpiration(accessToken.value);
+    const now = Date.now();
+    const timeout = expiration - now - 60000; // Refresh 1 minute before expiry
 
-    user: null as AuthUser | null,
-
-    isAuthenticated: false
-  }),
-
-  actions: {
-
-    setAuth(data: LoginResponse) {
-
-      this.accessToken = data.accessToken
-
-      this.refreshToken = data.refreshToken
-
-      this.user = {
-        userId: data.userId,
-        role: data.role,
-        panelUrl: data.panelUrl
-      }
-
-      this.isAuthenticated = true
-
-      localStorage.setItem(
-        'access_token',
-        data.accessToken
-      )
-
-      localStorage.setItem(
-        'refresh_token',
-        data.refreshToken
-      )
-
-      localStorage.setItem(
-        'auth_user',
-        JSON.stringify(this.user)
-      )
-    },
-
-    loadAuth() {
-
-      const accessToken =
-        localStorage.getItem('access_token')
-
-      const refreshToken =
-        localStorage.getItem('refresh_token')
-
-      const user =
-        localStorage.getItem('auth_user')
-
-      if (
-        accessToken &&
-        refreshToken &&
-        user
-      ) {
-        this.accessToken = accessToken
-        this.refreshToken = refreshToken
-
-        this.user = JSON.parse(user)
-
-        this.isAuthenticated = true
-      }
-    },
-
-    clearAuth() {
-
-      this.accessToken = ''
-
-      this.refreshToken = ''
-
-      this.user = null
-
-      this.isAuthenticated = false
-
-      localStorage.removeItem('access_token')
-      localStorage.removeItem('refresh_token')
-      localStorage.removeItem('auth_user')
+    if (timeout <= 0) {
+      refreshAuthToken();
+      return;
     }
-  }
-})
+
+    if (refreshTimeout.value) {
+      clearTimeout(refreshTimeout.value);
+    }
+
+    refreshTimeout.value = setTimeout(() => {
+      refreshAuthToken();
+    }, timeout);
+  };
+
+  const refreshAuthToken = async () => {
+    try {
+      const config = useRuntimeConfig();
+      const response = await $fetch<any>(
+        `${config.public.apiBase}/account/refresh-token`,
+        {
+          method: 'POST',
+          body: { refreshToken: refreshToken.value },
+        }
+      );
+
+      setAuth(response.data);
+    } catch (error) {
+      console.error('Token refresh failed:', error);
+      clearAuth();
+      await navigateTo('/login');
+    }
+  };
+
+  const setAuth = (data: LoginResponse) => {
+    accessToken.value = data.accessToken;
+    refreshToken.value = data.refreshToken;
+    user.value = {
+      userId: data.userId,
+      role: data.role,
+      panelUrl: data.panelUrl,
+    };
+    
+    // Use sessionStorage instead of localStorage (auto-cleared when tab closes)
+    sessionStorage.setItem('access_token', data.accessToken);
+    sessionStorage.setItem('refresh_token', data.refreshToken);
+    sessionStorage.setItem('user', JSON.stringify(user.value));
+    
+    scheduleRefresh();
+  };
+
+  const clearAuth = () => {
+    accessToken.value = '';
+    refreshToken.value = '';
+    user.value = null;
+    
+    sessionStorage.removeItem('access_token');
+    sessionStorage.removeItem('refresh_token');
+    sessionStorage.removeItem('user');
+    
+    if (refreshTimeout.value) {
+      clearTimeout(refreshTimeout.value);
+      refreshTimeout.value = null;
+    }
+  };
+
+  // Restore session from sessionStorage on app load
+  const restoreSession = () => {
+    const storedAccessToken = sessionStorage.getItem('access_token');
+    const storedRefreshToken = sessionStorage.getItem('refresh_token');
+    const storedUser = sessionStorage.getItem('user');
+    
+    if (storedAccessToken && storedRefreshToken && storedUser) {
+      accessToken.value = storedAccessToken;
+      refreshToken.value = storedRefreshToken;
+      user.value = JSON.parse(storedUser);
+      scheduleRefresh();
+      return true;
+    }
+    return false;
+  };
+
+  return {
+    accessToken,
+    refreshToken,
+    user,
+    isAuthenticated,
+    setAuth,
+    clearAuth,
+    refreshAuthToken,
+    scheduleRefresh,
+    restoreSession,
+  };
+}, {
+  persist: false, // Disable auto-persist, we manually control sessionStorage
+});

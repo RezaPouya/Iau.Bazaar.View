@@ -1,6 +1,6 @@
 <template>
   <Html lang="fa" dir="rtl">
-    <Body class="bg-slate-100 dark:bg-slate-900 rounded-7px">
+    <Body class="bg-slate-100 dark:bg-slate-900">
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>

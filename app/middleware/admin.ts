@@ -1,16 +1,20 @@
-import { useAuthStore } from '~/stores/auth';
-
 export default defineNuxtRouteMiddleware(() => {
+
   const auth = useAuthStore();
 
   if (!auth.user) {
+
     return navigateTo('/login');
   }
 
-  const roles = auth.user.role || [];
-  const isAdmin = roles.includes('Admin') || roles.includes('Operator');
+  const role = auth.user.role;
+
+  const isAdmin =
+    role === 'Admin' ||
+    role === 'Operator';
 
   if (!isAdmin) {
+
     return navigateTo('/');
   }
 });
