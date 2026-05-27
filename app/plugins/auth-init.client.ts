@@ -1,7 +1,7 @@
-export default defineNuxtPlugin(async () => {
+export default defineNuxtPlugin(() => {
   const auth = useAuthStore();
-  // Restore session if exists
-  await auth.restoreSession();
+  // Restore session if exists (synchronous)
+  auth.restoreSession();
   
   // Schedule refresh if authenticated
   if (auth.accessToken) {

@@ -9,15 +9,13 @@ export default defineNuxtPlugin(() => {
     timeout: 30000,
   });
 
-  // Add request interceptor for security headers
+  // Add request interceptor
   api.interceptors.request.use(
     (config) => {
       if (auth.accessToken) {
         config.headers.Authorization = `Bearer ${auth.accessToken}`;
-        // Add additional security headers
+        // Add additional security headers (no tabId)
         config.headers['X-Requested-With'] = 'XMLHttpRequest';
-        // ❌ REMOVE THIS LINE - tabId doesn't exist
-        // config.headers['X-Tab-Id'] = auth.tabId;
       }
       return config;
     },
@@ -26,7 +24,7 @@ export default defineNuxtPlugin(() => {
     }
   );
 
-  // Response interceptor with better error handling
+  // Response interceptor
   api.interceptors.response.use(
     (response) => response,
     async (error) => {

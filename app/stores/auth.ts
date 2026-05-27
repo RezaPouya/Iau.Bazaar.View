@@ -42,7 +42,9 @@ export const useAuthStore = defineStore('auth', () => {
         }
       );
 
-      setAuth(response.data);
+      if (response?.data) {
+        setAuth(response.data);
+      }
     } catch (error) {
       console.error('Token refresh failed:', error);
       clearAuth();
@@ -59,7 +61,7 @@ export const useAuthStore = defineStore('auth', () => {
       panelUrl: data.panelUrl,
     };
     
-    // Use sessionStorage instead of localStorage (auto-cleared when tab closes)
+    // Use sessionStorage instead of localStorage
     sessionStorage.setItem('access_token', data.accessToken);
     sessionStorage.setItem('refresh_token', data.refreshToken);
     sessionStorage.setItem('user', JSON.stringify(user.value));
@@ -75,6 +77,7 @@ export const useAuthStore = defineStore('auth', () => {
     sessionStorage.removeItem('access_token');
     sessionStorage.removeItem('refresh_token');
     sessionStorage.removeItem('user');
+    sessionStorage.removeItem('redirectAfterLogin');
     
     if (refreshTimeout.value) {
       clearTimeout(refreshTimeout.value);
@@ -82,8 +85,8 @@ export const useAuthStore = defineStore('auth', () => {
     }
   };
 
-  // Restore session from sessionStorage on app load
-  const restoreSession = async () => {
+  // Restore session from sessionStorage on app load - SYNCHRONOUS
+  const restoreSession = () => {
     const storedAccessToken = sessionStorage.getItem('access_token');
     const storedRefreshToken = sessionStorage.getItem('refresh_token');
     const storedUser = sessionStorage.getItem('user');
@@ -91,7 +94,12 @@ export const useAuthStore = defineStore('auth', () => {
     if (storedAccessToken && storedRefreshToken && storedUser) {
       accessToken.value = storedAccessToken;
       refreshToken.value = storedRefreshToken;
-      user.value = JSON.parse(storedUser);
+      try {
+        user.value = JSON.parse(storedUser);
+      } catch (e) {
+        console.error('Failed to parse user', e);
+        return false;
+      }
       scheduleRefresh();
       return true;
     }
@@ -109,6 +117,4 @@ export const useAuthStore = defineStore('auth', () => {
     scheduleRefresh,
     restoreSession,
   };
-}, {
-  persist: false, // Disable auto-persist, we manually control sessionStorage
 });

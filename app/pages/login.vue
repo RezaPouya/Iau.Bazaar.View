@@ -41,7 +41,7 @@
         <button
           type="submit"
           :disabled="loading"
-          class="w-full bg-primary-600 hover:bg-primary-700 py-3 rounded-lg font-bold transition disabled:opacity-50 disabled:cursor-not-allowed"
+          class="w-full bg-primary-600 hover:bg-primary-700 text-white py-3 rounded-lg font-bold transition disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {{ loading ? 'در حال ورود...' : 'ورود' }}
         </button>
@@ -69,7 +69,7 @@ const error = ref('');
 
 const handleLogin = async () => {
   if (!form.username || !form.password) {
-    error.value = 'لطفا ایمیل و رمز عبور را وارد کنید';
+    error.value = 'لطفا نام کاربری و رمز عبور را وارد کنید';
     return;
   }
 
@@ -87,10 +87,20 @@ const handleLogin = async () => {
     const auth = useAuthStore();
     auth.setAuth(data);
 
-    await navigateTo(data.panelUrl || '/');
+    // Check for redirect after login
+    const redirect = sessionStorage.getItem('redirectAfterLogin') || data.panelUrl || '/';
+    sessionStorage.removeItem('redirectAfterLogin');
+    
+    await navigateTo(redirect);
   } catch (err: any) {
     console.error('Login error:', err);
-    error.value = err.response?.data?.message || 'خطا در ورود به سیستم. لطفا مجددا تلاش کنید.';
+    if (err.response?.status === 401) {
+      error.value = 'نام کاربری یا رمز عبور اشتباه است';
+    } else if (err.code === 'ERR_NETWORK') {
+      error.value = 'خطا در ارتباط با سرور. لطفا مجددا تلاش کنید.';
+    } else {
+      error.value = err.response?.data?.message || 'خطا در ورود به سیستم. لطفا مجددا تلاش کنید.';
+    }
   } finally {
     loading.value = false;
   }
