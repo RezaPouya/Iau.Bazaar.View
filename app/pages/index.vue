@@ -27,6 +27,11 @@
 </template>
 
 <script setup lang="ts">
+// ✅ Disable SSR for this page to prevent hydration mismatch
+definePageMeta({
+  ssr: false
+});
+
 const auth = useAuthStore();
 const { logout } = useLogout();
 

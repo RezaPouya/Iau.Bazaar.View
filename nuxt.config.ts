@@ -26,15 +26,12 @@ export default defineNuxtConfig({
     head: {
       meta: [
         { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        // Security headers (client-side)
-        { 'http-equiv': 'X-Content-Type-Options', content: 'nosniff' },
-        { 'http-equiv': 'X-Frame-Options', content: 'DENY' },
-        { 'http-equiv': 'X-XSS-Protection', content: '1; mode=block' }
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
       ]
     }
   },
-  nitro: {
+  // Security headers for production only
+  nitro: process.env.NODE_ENV === 'production' ? {
     routeRules: {
       '/**': {
         headers: {
@@ -42,10 +39,9 @@ export default defineNuxtConfig({
           'X-Frame-Options': 'DENY',
           'X-XSS-Protection': '1; mode=block',
           'Referrer-Policy': 'strict-origin-when-cross-origin',
-          // ✅ Fix CSP to allow API connections
-          'Content-Security-Policy': "default-src 'self'; connect-src 'self' https://localhost:7139 https://localhost:7139; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;"
+          'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://your-production-api.com;"
         }
       }
     }
-  }
+  } : {} // No CSP headers in development
 });
