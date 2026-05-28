@@ -1,13 +1,13 @@
 export const sanitizeInput = (input: string): string => {
   if (!input) return '';
   return input
-    .replace(/[&<>]/g, function(m) {
+    .replace(/[&<>]/g, function (m) {
       if (m === '&') return '&amp;';
       if (m === '<') return '&lt;';
       if (m === '>') return '&gt;';
       return m;
     })
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function (c) {
       return c;
     });
 };

@@ -1,67 +1,36 @@
-import type { ApiResponse } from '~/types/api'
+import type { ApiResponse } from '~/types/api';
 
 export const useApi = () => {
+  const { $api } = useNuxtApp();
 
-  const { $api } = useNuxtApp()
+  const get = async <T>(url: string, params = {}) => {
+    const response = await $api.get<ApiResponse<T>>(url, { params });
 
-  const get = async <T>(
-    url: string,
-    params = {}
-  ) => {
+    return response.data.data;
+  };
 
-    const response =
-      await $api.get<ApiResponse<T>>(
-        url,
-        { params }
-      )
+  const post = async <T>(url: string, body = {}) => {
+    const response = await $api.post<ApiResponse<T>>(url, body);
 
-    return response.data.data
-  }
+    return response.data.data;
+  };
 
-  const post = async <T>(
-    url: string,
-    body = {}
-  ) => {
+  const put = async <T>(url: string, body = {}) => {
+    const response = await $api.put<ApiResponse<T>>(url, body);
 
-    const response =
-      await $api.post<ApiResponse<T>>(
-        url,
-        body
-      )
+    return response.data.data;
+  };
 
-    return response.data.data
-  }
+  const remove = async <T>(url: string) => {
+    const response = await $api.delete<ApiResponse<T>>(url);
 
-  const put = async <T>(
-    url: string,
-    body = {}
-  ) => {
-
-    const response =
-      await $api.put<ApiResponse<T>>(
-        url,
-        body
-      )
-
-    return response.data.data
-  }
-
-  const remove = async <T>(
-    url: string
-  ) => {
-
-    const response =
-      await $api.delete<ApiResponse<T>>(
-        url
-      )
-
-    return response.data.data
-  }
+    return response.data.data;
+  };
 
   return {
     get,
     post,
     put,
-    remove
-  }
-}
+    remove,
+  };
+};

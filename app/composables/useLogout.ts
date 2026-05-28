@@ -26,6 +26,6 @@ export const useLogout = () => {
   };
 
   return {
-    logout
+    logout,
   };
 };

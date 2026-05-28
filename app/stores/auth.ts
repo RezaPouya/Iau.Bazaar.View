@@ -1,3 +1,4 @@
+import { jwtDecode } from 'jwt-decode';
 import { defineStore } from 'pinia';
 import type { AuthUser, LoginResponse } from '~/types/auth';
 import { getTokenExpiration } from '~/utils/jwt';
@@ -59,13 +60,22 @@ export const useAuthStore = defineStore('auth', () => {
       userId: data.userId,
       role: data.role,
       panelUrl: data.panelUrl,
+      fullName: (data as any).fullName, // if available
+      FirstName: (data as any).firstName,
+      LastName: (data as any).lastName,
     };
-    
+    try {
+      const decoded: any = jwtDecode(data.accessToken);
+      user.value.FirstName = decoded.fname || '';
+      user.value.LastName = decoded.lname || '';
+      user.value.fullName = `${decoded.fname || ''} ${decoded.lname || ''}`.trim();
+    } catch (e) { /* ignore */ }
+
     // Use sessionStorage instead of localStorage
     sessionStorage.setItem('access_token', data.accessToken);
     sessionStorage.setItem('refresh_token', data.refreshToken);
     sessionStorage.setItem('user', JSON.stringify(user.value));
-    
+
     scheduleRefresh();
   };
 
@@ -73,12 +83,12 @@ export const useAuthStore = defineStore('auth', () => {
     accessToken.value = '';
     refreshToken.value = '';
     user.value = null;
-    
+
     sessionStorage.removeItem('access_token');
     sessionStorage.removeItem('refresh_token');
     sessionStorage.removeItem('user');
     sessionStorage.removeItem('redirectAfterLogin');
-    
+
     if (refreshTimeout.value) {
       clearTimeout(refreshTimeout.value);
       refreshTimeout.value = null;
@@ -90,7 +100,7 @@ export const useAuthStore = defineStore('auth', () => {
     const storedAccessToken = sessionStorage.getItem('access_token');
     const storedRefreshToken = sessionStorage.getItem('refresh_token');
     const storedUser = sessionStorage.getItem('user');
-    
+
     if (storedAccessToken && storedRefreshToken && storedUser) {
       accessToken.value = storedAccessToken;
       refreshToken.value = storedRefreshToken;

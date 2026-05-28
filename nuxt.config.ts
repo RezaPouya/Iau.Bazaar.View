@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@pinia/nuxt',
+    '@nuxt/ui'
   ],
   css: ['./app/assets/css/main.css'],
   vite: {
@@ -15,7 +16,7 @@ export default defineNuxtConfig({
   plugins: [
     '~/plugins/api',
     '~/plugins/theme.client',
-    '~/plugins/auth-init.client'
+    '~/plugins/auth-init.client',
   ],
   runtimeConfig: {
     public: {
@@ -26,22 +27,26 @@ export default defineNuxtConfig({
     head: {
       meta: [
         { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
-      ]
-    }
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      ],
+    },
   },
   // Security headers for production only
-  nitro: process.env.NODE_ENV === 'production' ? {
-    routeRules: {
-      '/**': {
-        headers: {
-          'X-Content-Type-Options': 'nosniff',
-          'X-Frame-Options': 'DENY',
-          'X-XSS-Protection': '1; mode=block',
-          'Referrer-Policy': 'strict-origin-when-cross-origin',
-          'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://your-production-api.com;"
+  nitro:
+    process.env.NODE_ENV === 'production'
+      ? {
+          routeRules: {
+            '/**': {
+              headers: {
+                'X-Content-Type-Options': 'nosniff',
+                'X-Frame-Options': 'DENY',
+                'X-XSS-Protection': '1; mode=block',
+                'Referrer-Policy': 'strict-origin-when-cross-origin',
+                'Content-Security-Policy':
+                  "default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://your-production-api.com;",
+              },
+            },
+          },
         }
-      }
-    }
-  } : {} // No CSP headers in development
+      : {}, // No CSP headers in development
 });

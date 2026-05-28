@@ -9,8 +9,20 @@ body {
   .rounded-5px {
     border-radius: 5px;
   }
-  
+
   .rounded-7px {
     border-radius: 7px;
   }
+}
+
+
+/* Ensure RTL button group works correctly */
+.flex.rounded-lg {
+  direction: ltr;
+}
+.flex.rounded-lg button:first-child {
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.flex.rounded-lg button:last-child {
+  border-radius: 0.5rem 0 0 0.5rem;
 }

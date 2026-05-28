@@ -1,7 +1,4 @@
-<template>
-    Index
-</template> 
-
+<template>Index</template>
 
 <script setup>
 definePageMeta({

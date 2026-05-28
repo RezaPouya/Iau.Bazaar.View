@@ -10,7 +10,7 @@ module.exports = {
   ],
 
   //plugins: [require('tailwindcss-rtl')],
- 
+
   theme: {
     extend: {
       //    borderRadius: {
