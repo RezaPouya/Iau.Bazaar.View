@@ -42,7 +42,7 @@
             v-model="form.username"
             placeholder="نام کاربری یا 09123456789"
             size="lg"
-            input-class="text-left py-3 px-4"
+            input-class="text-left p-3"
             :disabled="loading"
           />
         </UFormField>
